@@ -33,4 +33,10 @@ public class FuenteEnergia : PartDestruible
             }
         }
     }
+
+    override protected IEnumerator UpdateDamage()
+    {
+
+        yield return new WaitForSeconds(7);
+    }
 }

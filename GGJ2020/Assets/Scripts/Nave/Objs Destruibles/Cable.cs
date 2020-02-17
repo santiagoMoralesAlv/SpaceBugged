@@ -6,46 +6,57 @@ public class Cable : PartDestruible
 {
     [SerializeField]
     private int numCable;
-    AudioSource audioSource;
-    public ParticleSystem cautin;
 
+    [SerializeField]
     private Animator m_animator;
+
+    public int NumCable { get => numCable; }
 
     new private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         base.Awake();
-        m_animator = this.GetComponent<Animator>();
     }
     
     override public void UpdatePart()
     {
-        m_animator.Play("animacion", 0, 1-Ship.Instance.CablesHealth[numCable]);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("puntaCautin"))
+        //if(coroutin)
+        if (!isCoroutineRunning)
         {
-            audioSource.Play();
-            cautin.Play();
+            isCoroutineRunning = true;
+            StartCoroutine("UpdateDamage");
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("puntaCautin"))
-        {
-            Ship.Instance.ApplyCableHeal(numCable, 0.01f * Time.deltaTime);
-        }
-    }
 
-    private void OnCollisionExit(Collision collision)
+    private bool isCoroutineRunning;
+    override protected IEnumerator UpdateDamage()
     {
-        if (collision.gameObject.CompareTag("puntaCautin"))
-        {
-            audioSource.Stop();
-            cautin.Stop();
-        }
+        
+            //La animacion de la corutina parpadea porque se esta reparando todo el tiempo, entonces la corutina funciona en ambas direcciones todo el tiempo
+
+            m_animator.Play("animacion", 0);
+            if (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1 - Ship.Instance.CablesHealth[numCable])
+            {
+                m_animator.SetFloat("speedMult", 1);
+                while (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1 - Ship.Instance.CablesHealth[numCable])
+                {
+                    yield return null;
+                }
+            }
+            else
+            {
+                m_animator.SetFloat("speedMult", -1);
+
+                while (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 - Ship.Instance.CablesHealth[numCable])
+                {
+                    yield return null;
+                }
+            }
+
+            m_animator.Play("animacion", 0, 1 - Ship.Instance.CablesHealth[numCable]);
+            m_animator.SetFloat("speedMult", 0);
+            isCoroutineRunning = false;
+        
+
     }
 }

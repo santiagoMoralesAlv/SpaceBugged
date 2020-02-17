@@ -87,6 +87,11 @@ public class ControlGame : MonoBehaviour
     {
         inGame = true;
         gameTime = 0;
+        try
+        {
+            e_startGame();
+        }
+        catch { }
     }
 
     IEnumerator ResetLevel() {
@@ -107,6 +112,7 @@ public class ControlGame : MonoBehaviour
             UpdateDifficulty();
         }
         else if (Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("StartGame");
             StartGame();
         }
     }

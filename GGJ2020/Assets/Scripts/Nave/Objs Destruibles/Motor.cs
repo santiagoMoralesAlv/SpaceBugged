@@ -27,4 +27,10 @@ public class Motor : PartDestruible
             Ship.Instance.ApplyMotorHeal(0.1f);
         }
     }
+
+    override protected IEnumerator UpdateDamage()
+    {
+
+        yield return new WaitForSeconds(7);
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Ship : MonoBehaviour
 {
-    public UnityAction e_UpdateParts;
+    public UnityAction e_UpdateParts, e_StartGame;
 
     #region singleton
     private static Ship instance;
@@ -28,17 +28,14 @@ public class Ship : MonoBehaviour
     [SerializeField]
     private float velocity, currentVelocity, slowdown;
     
+    [SerializeField]
+    private Transform goHerramientas;
 
     public float MotorHealth
     {
         get
         {
             return motorHealth;
-        }
-
-        set
-        {
-            motorHealth = value;
         }
     }
 
@@ -48,11 +45,6 @@ public class Ship : MonoBehaviour
         {
             return gas;
         }
-
-        set
-        {
-            gas = value;
-        }
     }
 
     public float[] CablesHealth
@@ -61,11 +53,6 @@ public class Ship : MonoBehaviour
         {
             return cablesHealth;
         }
-
-        set
-        {
-            cablesHealth = value;
-        }
     }
 
     public float GlassClarity
@@ -73,11 +60,6 @@ public class Ship : MonoBehaviour
         get
         {
             return glassClarity;
-        }
-
-        set
-        {
-            glassClarity = value;
         }
     }
 
@@ -88,10 +70,6 @@ public class Ship : MonoBehaviour
             return handleIsGood;
         }
 
-        set
-        {
-            handleIsGood = value;
-        }
     }
 
     public float Velocity
@@ -100,12 +78,9 @@ public class Ship : MonoBehaviour
         {
             return currentVelocity;
         }
-
-        set
-        {
-            currentVelocity = value;
-        }
     }
+
+    public Transform GoHerramientas { get => goHerramientas;  }
 
     void Awake()
     {
@@ -127,14 +102,17 @@ public class Ship : MonoBehaviour
     public void ApplyRandomDamage() {
         ApplySlowdown();
 
-        int i = (int)Random.Range(0, 4.9f);
-
+        //int i = (int)Random.Range(0, 4.9f);
+        int i = 1;
         switch (i) {
             case 0:
                 ApplyMotorDamage( (ControlGame.Instance.Difficulty-1) );
                 break;
             case 1:
-                ApplyCableDamage((ControlGame.Instance.Difficulty - 1));
+
+                //ApplyCableDamage((ControlGame.Instance.Difficulty - 1));
+
+                ApplyCableDamage((0.5f));
                 break;
             case 2:
                 ApplyGlassDamage((ControlGame.Instance.Difficulty - 1));

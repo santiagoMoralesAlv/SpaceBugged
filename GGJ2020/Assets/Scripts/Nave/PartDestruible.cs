@@ -11,4 +11,6 @@ public abstract class PartDestruible : MonoBehaviour
 
     // Update is called once per frame
     abstract public void  UpdatePart();
+
+    protected abstract IEnumerator UpdateDamage();
 }

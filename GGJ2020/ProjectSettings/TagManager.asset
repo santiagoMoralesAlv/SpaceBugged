@@ -5,21 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ship
-  - puntaCautin
-  - Cautin
-  - Martillo
-  - Mascara
-  - TermoFanton
-  - TarroAgua
-  - puntaMartillo
   - Cables
   - Motor
-  - Carga
   - meteoro
   - FuenteEnergia
   - Esfera
-  - alien
   - Herramienta
+  - Bolsillo
   layers:
   - Default
   - TransparentFX

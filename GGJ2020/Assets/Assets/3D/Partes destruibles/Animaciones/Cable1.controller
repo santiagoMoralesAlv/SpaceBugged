@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: "\x01animacion"
-  m_Speed: 0
+  m_Speed: 0.1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -16,17 +16,17 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 0
+  m_SpeedParameterActive: 1
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3276975006103597805, guid: 0faed426a76bfe643b57dabd1efffe73,
+  m_Motion: {fileID: 5668067201474990222, guid: be66abbe24d23aa43b19af6f0c624d32,
     type: 3}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: speedMult
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: health
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -36,7 +36,7 @@ AnimatorController:
   m_Name: Cable1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Health
+  - m_Name: speedMult
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0

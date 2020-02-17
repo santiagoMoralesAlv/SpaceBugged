@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TermoFanton : MonoBehaviour
+public class TermoFanton : ActiveTool
 {
     [SerializeField]
     private float distanceRay;
@@ -22,6 +22,14 @@ public class TermoFanton : MonoBehaviour
     [SerializeField]
     private OVRGrabbable m_grabbable;
     private OVRInput.Controller m_controller = OVRInput.Controller.None;
+
+
+
+    override protected void Use()
+    {
+        Notify();
+    }
+
 
     // Update is called once per frame
     void ThrowRayCast()

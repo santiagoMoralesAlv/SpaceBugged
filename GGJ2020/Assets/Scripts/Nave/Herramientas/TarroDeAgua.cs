@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TarroDeAgua : MonoBehaviour
+public class TarroDeAgua : ActiveTool
 {
 
     [SerializeField]
@@ -24,5 +24,9 @@ public class TarroDeAgua : MonoBehaviour
 
 
     }
-    
+    override protected void Use()
+    {
+        Notify();
+    }
+
 }
