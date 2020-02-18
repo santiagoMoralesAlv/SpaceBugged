@@ -93,6 +93,8 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _intensityFresnel: 0.2
+    - _intensityHUE: 0.1
     m_Colors:
     - Color_EE19DC3A: {r: 0.5, g: 0.09198114, b: 0.09198114, a: 0}
     - Color_F7442005: {r: 0.011764714, g: 0.8980392, b: 0.7902292, a: 0}
