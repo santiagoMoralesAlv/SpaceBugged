@@ -17,15 +17,11 @@ public abstract class Tool : MonoBehaviour
 
     public void TakeTool() {
         isGrabbed = true;
-        rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
         Notify();
     }
 
     public void DropTool() {
         isGrabbed = false;
-        rb.useGravity = true;
-        rb.constraints = RigidbodyConstraints.None;
         Notify();
     }
 

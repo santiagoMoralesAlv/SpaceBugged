@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Radar : ActiveTool
 {
-    override protected void Use()
+    override public void Use()
+    {
+        Notify();
+    }
+
+    override public void UnUse()
     {
         Notify();
     }

@@ -1,48 +1,90 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class BugHand : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject tool;
+    private Tool tool;
     [SerializeField]
     private bool inGrab;
     private Transform tf;
 
+    [SerializeField]
+    private VRTK_InteractGrab vrtkGrab;
+    [SerializeField]
+    private VRTK_InteractUse vrtkUse;
+    [SerializeField]
+    private VRTK_Pointer vrtkPointer;
+    
+
     private void Awake()
     {
         tf = this.transform;
+
+        vrtkGrab.ControllerGrabInteractableObject += GrabTool;
+        vrtkGrab.ControllerUngrabInteractableObject += ReleaseTool;
+        
+        vrtkUse.ControllerUseInteractableObject += UseTool;
+        vrtkUse.ControllerUnuseInteractableObject += UnUseTool;
+
+
+        /*
+         Pendiente el uso del pointer para el hub 
+         
+        vrtkPointer. += UseTool;
+        vrtkPointer. += UnUseTool;*/
     }
 
-    private void GrabTool(GameObject t_tool) {
-
-        t_tool.transform.SetParent(tf);
-        t_tool.transform.localPosition = Vector3.zero;
-        t_tool.transform.localRotation = Quaternion.identity;
-        t_tool.GetComponent<Tool>().TakeTool();
-        tool = t_tool;
-        //Queda pendiente la orientacion de las herramientas al agarrarse
-        inGrab = true;
-    }
-
-    private void ReleaseTool()
-    {
-        tool.transform.SetParent(Ship.Instance.GoHerramientas.transform);
-
-        tool.GetComponent<Tool>().DropTool();
-        inGrab = false;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.E) && inGrab)
+    private void GrabTool(object sender, ObjectInteractEventArgs t_grab) {
+        if (t_grab.target.gameObject.CompareTag("Herramienta"))
         {
-            ReleaseTool();
-            tool = null;
+
+            tool = t_grab.target.GetComponent<Tool>();
+            tool.TakeTool();
+            inGrab = true;
         }
     }
+
+    private void ReleaseTool(object sender, ObjectInteractEventArgs t_grab)
+    {
+        if (t_grab.target.gameObject.CompareTag("Herramienta"))
+        {
+            tool.DropTool();
+            inGrab = false;
+        }
+    }
+
+    private void UseTool(object sender, ObjectInteractEventArgs t_Use)
+    {
+        if (tool != null)
+        {
+            if(tool is ActiveTool)
+            {
+
+                (tool as ActiveTool).Use();
+            }
+
+        }
+    }
+
+    private void UnUseTool(object sender, ObjectInteractEventArgs t_Use)
+    {
+        if (tool != null)
+        {
+            if (tool is ActiveTool)
+            {
+
+                (tool as ActiveTool).UnUse();
+            }
+
+        }
+    }
+
+
+
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -53,7 +95,9 @@ public class BugHand : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider collider)
-    {
+    { 
+        //OUTDATE
+        /*
         if (collider.CompareTag("Herramienta")) {
             if (Input.GetKeyDown(KeyCode.E) && !inGrab) {
                 if (!collider.gameObject.GetComponent<Tool>().IsGrabbed)
@@ -61,9 +105,9 @@ public class BugHand : MonoBehaviour
                     GrabTool(collider.gameObject);
                 }
             }
-        }
+        }*/
 
-
+        /*
         if (collider.CompareTag("Bolsillo")) {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -84,6 +128,7 @@ public class BugHand : MonoBehaviour
                 }
             }
         }
+        */
     }
 
 

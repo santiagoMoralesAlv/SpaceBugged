@@ -6,17 +6,19 @@ public abstract class ActiveTool : Tool
 {
     
 
-    public Tool.UpdateState e_Use;
+    public Tool.UpdateState e_UpdateState;
 
-    private bool inUse;
+    protected bool inUse;
 
-    protected abstract void Use();
+    public abstract void Use();
+    public abstract void UnUse();
 
     protected void Notify()
     {
+
         try
         {
-            e_Use(inUse);
+            e_UpdateState(inUse);
         }
         catch
         {

@@ -33,8 +33,7 @@ public class Cable : PartDestruible
     {
         
             //La animacion de la corutina parpadea porque se esta reparando todo el tiempo, entonces la corutina funciona en ambas direcciones todo el tiempo
-
-            m_animator.Play("animacion", 0);
+            
             if (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1 - Ship.Instance.CablesHealth[numCable])
             {
                 m_animator.SetFloat("speedMult", 1);

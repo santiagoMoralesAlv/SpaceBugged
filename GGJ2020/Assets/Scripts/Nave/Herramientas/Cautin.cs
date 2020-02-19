@@ -8,7 +8,14 @@ public class Cautin : ActiveTool
     [SerializeField]
     private float capacityToRepair;
 
-    override protected void Use() {
+    override public void Use() {
+        inUse =true;
+        Notify();
+    }
+
+    override public void UnUse()
+    {
+        inUse = false;
         Notify();
     }
 
@@ -23,7 +30,11 @@ public class Cautin : ActiveTool
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Cables")) {
-            Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
+            if (inUse)
+            {
+
+                Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
+            }
         }
     }
 }

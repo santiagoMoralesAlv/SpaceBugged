@@ -12,10 +12,7 @@ public class RecuperadorDeHerramientas : MonoBehaviour
         string tag = collision.gameObject.tag;
 
         switch (tag) {
-            case "Cautin":
-            case "Martillo":
-            case "TermoFanton":
-            case "alien":
+            case "Herramienta":
                 collision.gameObject.transform.position = eje.transform.position;
                 break;
             default:
