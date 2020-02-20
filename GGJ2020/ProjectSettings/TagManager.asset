@@ -14,6 +14,7 @@ TagManager:
   - Bolsillo
   - ExcludeTeleport
   - Test
+  - Vidrio
   layers:
   - Default
   - TransparentFX

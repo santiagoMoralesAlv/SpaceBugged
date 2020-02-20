@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Test : MonoBehaviour
+public class Test : MonoBehaviour
 {
     public UnityAction e_Complete;
+
+    private ManagerClassicTest manager;
+
+    public ManagerClassicTest Manager { get => manager; }
 
     public void OnCompleteTest()
     {
@@ -14,7 +18,5 @@ public abstract class Test : MonoBehaviour
             e_Complete();
         }
     }
-
-    public abstract void SuscribeTest();
 
 }

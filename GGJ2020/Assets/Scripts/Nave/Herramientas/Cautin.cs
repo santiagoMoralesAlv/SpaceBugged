@@ -6,7 +6,7 @@ public class Cautin : ActiveTool
 {
     private int numCableToRepair;
     [SerializeField]
-    private float capacityToRepair;
+    private float capacityToRepair, capacityToRepairWithTest;
 
     override public void Use() {
         inUse =true;
@@ -25,6 +25,13 @@ public class Cautin : ActiveTool
         {
             numCableToRepair = collider.gameObject.GetComponent<Cable>().NumCable;
         }
+
+        if (collider.gameObject.CompareTag("Test"))
+        {
+            Test t_test =  collider.gameObject.GetComponent<Test>();
+            t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest);
+            t_test.OnCompleteTest();
+        }
     }
 
     private void OnTriggerStay(Collider collider)
@@ -33,7 +40,7 @@ public class Cautin : ActiveTool
         {
             if (inUse)
             {
-                Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
+                collider.gameObject.GetComponent<Cable>().Heal(capacityToRepair);
             }
         }
 
