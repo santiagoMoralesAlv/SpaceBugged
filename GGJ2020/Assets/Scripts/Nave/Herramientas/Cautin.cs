@@ -33,7 +33,6 @@ public class Cautin : ActiveTool
         {
             if (inUse)
             {
-
                 Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
             }
         }
