@@ -7,51 +7,31 @@ public class TestGenerationAleatory : MonoBehaviour
     [SerializeField]
     private GameObject pf_Test;
 
-    [SerializeField] private bool ShowRay;
-    [SerializeField] private float distanceRay;
-    private Ray ray;
-
     [SerializeField]
-    private MeshFilter mesh;
+    private Transform[] points;
 
-    [SerializeField]
-    private Transform eyes;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log(GenerateNewTest());
+        }
+    }
 
-    public GameObject GenerateNewTest(string tagTool) {
-        Vector3 newPoint = mesh.mesh.vertices[Random.Range(0, mesh.mesh.vertexCount)];
+    public GameObject GenerateNewTest() {
+        Vector3 verticePoint = Vector3.zero;
+        //Vector3 verticePoint = mesh.mesh.vertices[Random.Range(0, mesh.mesh.vertexCount)];
 
         GameObject test = null;
 
-        if (CastRay(newPoint, tagTool)) {
-            test = Instantiate(pf_Test, newPoint, Quaternion.identity);
-        }
-
+        test = Instantiate(pf_Test,SelectRandomPoint(),Quaternion.identity);
+        VRTK.VRTK_SDKManager.instance.loadedSetup
         return test;
     }
-
-    private bool CastRay(Vector3 point, string tagTool)
+    private Vector3 SelectRandomPoint()
     {
-
-        ray = new Ray(eyes.position, (point - eyes.position));
-
-
-
-        if (ShowRay)
-        {
-            Debug.DrawRay(ray.origin, ray.direction, Color.cyan, 3);
-        }
-
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, distanceRay))
-        {
-            if (hit.transform.CompareTag(tagTool))
-            {
-                return true;
-            }
-        }
-
-        return false;
-
+        int num = Random.Range(0,points.Length);
+        return points[num].position;
     }
 
 }
