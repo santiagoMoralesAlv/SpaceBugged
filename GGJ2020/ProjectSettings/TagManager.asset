@@ -12,6 +12,8 @@ TagManager:
   - Esfera
   - Herramienta
   - Bolsillo
+  - ExcludeTeleport
+  - Test
   layers:
   - Default
   - TransparentFX

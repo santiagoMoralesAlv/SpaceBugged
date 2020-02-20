@@ -19,22 +19,24 @@ public class Cautin : ActiveTool
         Notify();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Cables"))
+        if (collider.gameObject.CompareTag("Cables"))
         {
-            numCableToRepair = collision.gameObject.GetComponent<Cable>().NumCable;
+            numCableToRepair = collider.gameObject.GetComponent<Cable>().NumCable;
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Cables")) {
+        if (collider.gameObject.CompareTag("Cables"))
+        {
             if (inUse)
             {
 
                 Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
             }
         }
+
     }
 }
