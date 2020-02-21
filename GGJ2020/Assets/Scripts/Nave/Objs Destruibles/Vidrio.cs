@@ -22,6 +22,11 @@ public class Vidrio : PartDestruible
         StartCoroutine("UpdateDamage");
     }
 
+    override public void Heal(float value)
+    {
+        Ship.Instance.ApplyGlassHeal(value);
+    }
+
     override protected IEnumerator UpdateDamage()
     {
         while ((Mathf.Round(  m_material.GetFloat("_alpha")*100) != Mathf.Round( (1 - Ship.Instance.GlassClarity) * 100)))

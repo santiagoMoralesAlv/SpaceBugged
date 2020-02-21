@@ -19,13 +19,9 @@ public class Motor : PartDestruible
         m_animator.Play("animacion", 0, 1-Ship.Instance.MotorHealth);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    override public void Heal(float value)
     {
-        if (collision.gameObject.CompareTag("Martillo"))
-        {
-            audioSource.Play();
-            Ship.Instance.ApplyMotorHeal(0.1f);
-        }
+        Ship.Instance.ApplyMotorHeal(value);
     }
 
     override protected IEnumerator UpdateDamage()

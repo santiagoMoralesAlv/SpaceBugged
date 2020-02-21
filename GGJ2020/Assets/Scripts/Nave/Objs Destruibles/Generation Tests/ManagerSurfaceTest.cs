@@ -17,8 +17,9 @@ public class ManagerSurfaceTest : ManagerTest
 
     private Transform tf;
 
-    private void Awake()
+    override protected void Awake()
     {
+        base.Awake();
         tf = this.transform;
     }
 
@@ -42,13 +43,14 @@ public class ManagerSurfaceTest : ManagerTest
 
         GameObject test = null;
         test = Instantiate(pf_Test, collisionPoint, Quaternion.identity, tf);
+        test.GetComponent<Test>().Manager = this;
         test.GetComponent<Test>().e_Complete += CompleteTest;
 
     }
 
     private Vector3 CastRay(Vector3 point)
     {
-        Vector3 eyesPosition = VRTK.VRTK_SDKManager.instance.loadedSetup.actualHeadset.transform.position;
+        Vector3 eyesPosition = HeadsetReference.Instance.HeadsetTf.position;
         ray = new Ray(eyesPosition, (point - eyesPosition));
 
         if (ShowRay)

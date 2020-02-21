@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Animations;
 
 public class Test : MonoBehaviour
 {
     public UnityAction e_Complete;
 
-    private ManagerClassicTest manager;
+    private ManagerTest manager;
 
-    public ManagerClassicTest Manager { get => manager; }
+    public ManagerTest Manager { get => manager; set => manager=value; }
+
+    virtual protected void Awake()
+    {
+        ConstraintSource headsetConstraint = new ConstraintSource();
+        headsetConstraint.sourceTransform = HeadsetReference.Instance.HeadsetTf;
+        headsetConstraint.weight = 1;
+        this.GetComponent<LookAtConstraint>().AddSource(headsetConstraint);
+    }
 
     public void OnCompleteTest()
     {

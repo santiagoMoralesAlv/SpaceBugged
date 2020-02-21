@@ -7,13 +7,10 @@ public class ManagerClassicTest : ManagerTest
     [SerializeField]
     private Transform[] points;
 
-    private PartDestruible partDestruible;
 
-    public PartDestruible PartDestruible { get => partDestruible; }
-
-    private void Awake()
+    override protected void Awake()
     {
-        partDestruible = this.GetComponent<PartDestruible>();
+        base.Awake();
         GenerateNewTest();
     }
 
@@ -25,6 +22,7 @@ public class ManagerClassicTest : ManagerTest
 
         GameObject test = null;
         test = Instantiate(pf_Test, points[num].position, Quaternion.identity, points[num]);
+        test.GetComponent<Test>().Manager = this;
         test.GetComponent<Test>().e_Complete += CompleteTest;
     }
 

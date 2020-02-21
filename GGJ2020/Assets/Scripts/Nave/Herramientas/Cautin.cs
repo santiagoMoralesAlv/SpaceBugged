@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Cautin : ActiveTool
 {
-    private int numCableToRepair;
     [SerializeField]
     private float capacityToRepair, capacityToRepairWithTest;
 
@@ -19,20 +18,6 @@ public class Cautin : ActiveTool
         Notify();
     }
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Cables"))
-        {
-            numCableToRepair = collider.gameObject.GetComponent<Cable>().NumCable;
-        }
-
-        if (collider.gameObject.CompareTag("Test"))
-        {
-            Test t_test =  collider.gameObject.GetComponent<Test>();
-            t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest);
-            t_test.OnCompleteTest();
-        }
-    }
 
     private void OnTriggerStay(Collider collider)
     {
@@ -41,6 +26,19 @@ public class Cautin : ActiveTool
             if (inUse)
             {
                 collider.gameObject.GetComponent<Cable>().Heal(capacityToRepair);
+            }
+        }
+
+        if (collider.gameObject.CompareTag("Test"))
+        {
+            if (inUse)
+            {
+                Test t_test = collider.gameObject.GetComponent<Test>();
+                if (t_test.Manager.PartDestruible is Cable)
+                {
+                    t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest);
+                    t_test.OnCompleteTest();
+                }
             }
         }
 

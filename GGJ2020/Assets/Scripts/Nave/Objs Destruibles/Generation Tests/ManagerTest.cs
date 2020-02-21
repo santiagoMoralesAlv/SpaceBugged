@@ -8,4 +8,14 @@ public abstract class ManagerTest : MonoBehaviour
     protected GameObject pf_Test;
 
     public abstract void GenerateNewTest();
+
+
+    private PartDestruible partDestruible;
+
+    public PartDestruible PartDestruible { get => partDestruible; }
+
+    virtual protected void Awake()
+    {
+        partDestruible = this.GetComponent<PartDestruible>();
+    }
 }

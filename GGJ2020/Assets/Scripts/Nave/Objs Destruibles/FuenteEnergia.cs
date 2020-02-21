@@ -22,6 +22,11 @@ public class FuenteEnergia : PartDestruible
         emi.constant = Ship.Instance.Gas*20;
     }
 
+    override public void Heal(float value)
+    {
+        Ship.Instance.ApplyGasHeal(value);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("TermoFanton")) {

@@ -13,9 +13,11 @@ public class MovTest : Test
     private float distanceMinToChangePoint, velocity;
 
 
-    private void Awake()
+    override protected void Awake()
     {
+        base.Awake();
         tf = this.transform;
+        
     }
 
     void Update()

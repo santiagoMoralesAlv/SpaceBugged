@@ -9,13 +9,10 @@ public class ManagerMovTest : ManagerTest
     private Transform[] points;
     private MovTest test;
 
-    private PartDestruible partDestruible;
 
-    public PartDestruible PartDestruible { get => partDestruible; }
-
-    private void Awake()
+    override protected void Awake()
     {
-        partDestruible = this.GetComponent<PartDestruible>();
+        base.Awake();
         GenerateNewTest();
     }
 
@@ -24,6 +21,7 @@ public class ManagerMovTest : ManagerTest
         int num = Random.Range(0, points.Length);
 
         test = Instantiate(pf_Test, points[num].position, Quaternion.identity, points[num]).GetComponent<MovTest>();
+        test.Manager = this;
         ChangePoint();
 
         test.e_RequestNewPoint += ChangePoint;
@@ -32,6 +30,6 @@ public class ManagerMovTest : ManagerTest
     private void ChangePoint()
     {
         int num = Random.Range(0, points.Length);
-        test.GetComponent<MovTest>().ChangePoint(points[num]);
+        test.ChangePoint(points[num]);
     }
 }
