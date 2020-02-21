@@ -15,6 +15,9 @@ TagManager:
   - ExcludeTeleport
   - Test
   - Vidrio
+  - StartButton
+  - MovLeftButton
+  - MovRightButton
   layers:
   - Default
   - TransparentFX

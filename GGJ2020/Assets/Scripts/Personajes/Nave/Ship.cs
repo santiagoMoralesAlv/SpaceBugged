@@ -102,17 +102,14 @@ public class Ship : MonoBehaviour
     public void ApplyRandomDamage() {
         ApplySlowdown();
 
-        //int i = (int)Random.Range(0, 4.9f);
-        int i = 1;
+        int i = (int)Random.Range(0, 2f);
         switch (i) {
             case 0:
                 ApplyMotorDamage( (ControlGame.Instance.Difficulty-1) );
                 break;
             case 1:
 
-                //ApplyCableDamage((ControlGame.Instance.Difficulty - 1));
-
-                ApplyCableDamage((0.5f));
+                ApplyCableDamage((ControlGame.Instance.Difficulty - 1));
                 break;
             case 2:
                 ApplyGlassDamage((ControlGame.Instance.Difficulty - 1));

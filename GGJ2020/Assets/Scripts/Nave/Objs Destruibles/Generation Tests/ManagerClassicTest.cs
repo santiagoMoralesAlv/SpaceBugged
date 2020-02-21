@@ -20,14 +20,14 @@ public class ManagerClassicTest : ManagerTest
 
         int num = Random.Range(0, points.Length);
 
-        GameObject test = null;
-        test = Instantiate(pf_Test, points[num].position, Quaternion.identity, points[num]);
-        test.GetComponent<Test>().Manager = this;
-        test.GetComponent<Test>().e_Complete += CompleteTest;
+        test = Instantiate(pf_Test, points[num].position, Quaternion.identity, points[num]).GetComponent<Test>();
+        test.Manager = this;
+        test.e_Complete += CompleteTest;
     }
 
     private void CompleteTest()
     {
+        Destroy(test.gameObject);
         GenerateNewTest();
     }
 

@@ -43,7 +43,7 @@ public class GeneradorMeteoros : MonoBehaviour
     {
         int i = (int)Mathf.Floor(Random.Range(0,1.9f));
 
-        Vector3 pos = new Vector3(30, Random.Range(1f, 8f), Ship.Instance.gameObject.transform.localPosition.z + Random.Range(-20, 20));
+        Vector3 pos = new Vector3(30, Random.Range(1f, 3f), Ship.Instance.gameObject.transform.localPosition.z + Random.Range(-20, 20));
 
         Instantiate(meteoros[i], pos, Quaternion.identity, gameObject.transform);
     }

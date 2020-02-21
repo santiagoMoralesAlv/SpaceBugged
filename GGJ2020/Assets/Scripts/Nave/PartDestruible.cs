@@ -15,4 +15,6 @@ public abstract class PartDestruible : MonoBehaviour
     protected abstract IEnumerator UpdateDamage();
 
     public abstract void Heal(float value);
+    
+    public abstract float GetHeal();
 }

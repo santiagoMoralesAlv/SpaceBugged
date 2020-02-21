@@ -6,11 +6,8 @@ public abstract class Tool : MonoBehaviour
 {
     public delegate void UpdateState (bool state);
     public UpdateState OnGrab;
-
-    [SerializeField]
+    
     private bool isGrabbed;
-    [SerializeField]
-    private Rigidbody rb;
 
 
     public bool IsGrabbed { get => isGrabbed;}

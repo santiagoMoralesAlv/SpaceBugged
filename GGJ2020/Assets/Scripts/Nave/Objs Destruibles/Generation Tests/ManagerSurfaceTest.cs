@@ -41,10 +41,9 @@ public class ManagerSurfaceTest : ManagerTest
             collisionPoint = CastRay(verticePoint);
         }
 
-        GameObject test = null;
-        test = Instantiate(pf_Test, collisionPoint, Quaternion.identity, tf);
-        test.GetComponent<Test>().Manager = this;
-        test.GetComponent<Test>().e_Complete += CompleteTest;
+        test = Instantiate(pf_Test, collisionPoint, Quaternion.identity, tf).GetComponent<Test>();
+        test.Manager = this;
+        test.e_Complete += CompleteTest;
 
     }
 

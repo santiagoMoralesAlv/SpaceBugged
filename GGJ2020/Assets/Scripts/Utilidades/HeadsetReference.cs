@@ -16,7 +16,7 @@ public class HeadsetReference : MonoBehaviour
     [SerializeField]
     private platform typePlatform;
 
-    public Transform HeadsetTf { get => headsetTf[(int)typePlatform];}
+    public Transform HeadsetTf { get  => headsetTf [(int)typePlatform]; }
 
     #region singleton
     private static HeadsetReference instance;

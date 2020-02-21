@@ -7,7 +7,6 @@ public class ManagerMovTest : ManagerTest
 
     [SerializeField]
     private Transform[] points;
-    private MovTest test;
 
 
     override protected void Awake()
@@ -24,12 +23,12 @@ public class ManagerMovTest : ManagerTest
         test.Manager = this;
         ChangePoint();
 
-        test.e_RequestNewPoint += ChangePoint;
+        (test as MovTest).e_RequestNewPoint += ChangePoint;
     }
 
     private void ChangePoint()
     {
         int num = Random.Range(0, points.Length);
-        test.ChangePoint(points[num]);
+        (test as MovTest).ChangePoint(points[num]);
     }
 }
