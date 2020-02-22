@@ -7,6 +7,7 @@ public class ManagerSurfaceTest : ManagerTest
 
     [SerializeField] private bool ShowRay;
     [SerializeField] private float distanceRay;
+    [SerializeField] private float offset;
     private Ray ray;
 
     [SerializeField]
@@ -15,33 +16,28 @@ public class ManagerSurfaceTest : ManagerTest
     [SerializeField]
     private string layer;
 
-    private Transform tf;
+    [SerializeField]
+    private Transform testContainerTf;
 
     override protected void Awake()
     {
         base.Awake();
-        tf = this.transform;
+        mesh = this.GetComponent<MeshFilter>();
+        GenerateNewTest();
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            GenerateNewTest();
-        }
-    }
-
     override public void GenerateNewTest()
     {
-        Vector3 verticePoint = mesh.mesh.vertices[Random.Range(0, mesh.mesh.vertexCount)];
+        Vector3 directionPoint;
         Vector3 collisionPoint = Vector3.zero;
-
-        while (collisionPoint == Vector3.zero)
+        //posiblemente esto sea poco optimo
+        while (collisionPoint == Vector3.zero )
         {
-            collisionPoint = CastRay(verticePoint);
+            directionPoint = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
+            collisionPoint = CastRay(directionPoint);
         }
 
-        test = Instantiate(pf_Test, collisionPoint, Quaternion.identity, tf).GetComponent<Test>();
+
+        test = Instantiate(pf_Test, collisionPoint, Quaternion.identity, testContainerTf).GetComponent<Test>();
         test.Manager = this;
         test.e_Complete += CompleteTest;
 
@@ -54,13 +50,16 @@ public class ManagerSurfaceTest : ManagerTest
 
         if (ShowRay)
         {
-            Debug.DrawRay(ray.origin, ray.direction, Color.cyan, 3);
+            Debug.DrawRay(ray.origin, ray.direction, Color.cyan, 10);
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, distanceRay, LayerMask.GetMask(layer), QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(ray, out hit, distanceRay, LayerMask.GetMask(layer, "ObjNoDestruible"), QueryTriggerInteraction.Collide))
         {
-            return hit.point+(-ray.direction.normalized);
+            if (hit.transform.gameObject.CompareTag("Vidrio")) {
+
+                return hit.point + (ray.direction.normalized * offset);
+            }
         }
 
         return Vector3.zero;
@@ -68,6 +67,7 @@ public class ManagerSurfaceTest : ManagerTest
 
     private void CompleteTest()
     {
+        Destroy(test.gameObject);
         GenerateNewTest();
     }
 

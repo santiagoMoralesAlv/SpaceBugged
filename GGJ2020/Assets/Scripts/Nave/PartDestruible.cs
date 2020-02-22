@@ -7,6 +7,7 @@ public abstract class PartDestruible : MonoBehaviour
     public void Awake()
     {
         Ship.Instance.e_UpdateParts += UpdatePart;
+
     }
 
     // Update is called once per frame
