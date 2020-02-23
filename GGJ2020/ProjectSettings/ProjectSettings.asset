@@ -403,8 +403,8 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - None
-    - Oculus
     - OpenVR
+    - Oculus
   - m_BuildTarget: Android
     m_Enabled: 0
     m_Devices: []
@@ -747,7 +747,7 @@ PlayerSettings:
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
     Build: 0
-    Collab: 1
+    Collab: 0
     ErrorHub: 0
     Hub: 0
     UNet: 1

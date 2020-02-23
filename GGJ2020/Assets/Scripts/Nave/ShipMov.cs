@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class ShipMov : MonoBehaviour
 {
-    Transform tr;
-    bool izquierda, derecha;
-    float speed;
-    private int state;
+    private Transform tr;
+    [SerializeField]
+    private bool izquierda, derecha;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float currentSpeed;
+
+    [SerializeField]
+    private VRTK_InteractUse vrtkLeftButton, vrtkRightButton;
 
     #region singleton
     private static ShipMov instance;
@@ -28,49 +35,49 @@ public class ShipMov : MonoBehaviour
             Destroy(instance.gameObject);
         }
         instance = this;
+
+        vrtkLeftButton.ControllerUseInteractableObject += UseButton;
+        vrtkLeftButton.ControllerUnuseInteractableObject += UnUseButton;
+        vrtkRightButton.ControllerUseInteractableObject += UseButton;
+        vrtkRightButton.ControllerUnuseInteractableObject += UnUseButton;
     }
 
     void Start()
     {
-        state = 0;
-        speed = 0.04f;
         izquierda = false;
         derecha = false;
         tr = GetComponent<Transform>();
     }
 
+    private void UseButton(object sender, ObjectInteractEventArgs t_Use){
+        if (t_Use.target.gameObject.CompareTag("MovLeftButton"))
+        {
+            izquierda = true;
+        }
+        if (t_Use.target.gameObject.CompareTag("MovRightButton"))
+        {
+            derecha = true;
+        }
+    }
+    private void UnUseButton(object sender, ObjectInteractEventArgs t_Use)
+    {
+        if (t_Use.target.gameObject.CompareTag("MovLeftButton"))
+        {
+            izquierda = false;
+        }
+        if (t_Use.target.gameObject.CompareTag("MovRightButton"))
+        {
+            derecha = false;
+        }
+    }
+
     void Update()
     {
-        if(derecha)
-        {
-            tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z - speed);
-        }
-        if(izquierda)
-        {
-            tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + speed);
-        }
-
-
-    }
-
-    public void Derecha()
-    {
-        state = 1;
-        izquierda = false;
-        derecha = true;
-    }
-
-    public void Izquierda()
-    {
-        state = 2;
-        izquierda = true;
-        derecha = false;
-    }
-
-    public void Yano()
-    {
-        state = 0;
-        izquierda = false;
-        derecha = false;
+        currentSpeed = 0;
+        if (izquierda)
+            currentSpeed = -speed;
+        if (derecha)
+            currentSpeed += speed;
+        tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (currentSpeed*Time.deltaTime));
     }
 }

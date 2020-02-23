@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using VRTK;
 
 public class ControlGame : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class ControlGame : MonoBehaviour
     #region variables
     [SerializeField]
     private bool inGame, inDangerZone;
+
+    [SerializeField]
+    private VRTK_InteractUse vrtkUseIzq, vrtkUseDer;
 
     [SerializeField]
     private float difficulty;
@@ -65,9 +69,10 @@ public class ControlGame : MonoBehaviour
     }
     #endregion
 
+
     void Awake()
     {
-        if (instance != null ) //posible bug
+        if (instance != null) //posible bug
         {
             Destroy(instance.gameObject);
         }
@@ -76,6 +81,10 @@ public class ControlGame : MonoBehaviour
 
         e_loseGame += LoseGame;
         UpdateDifficulty();
+
+
+        vrtkUseIzq.ControllerUseInteractableObject += StartGame;
+        vrtkUseDer.ControllerUseInteractableObject += StartGame;
     }
 
     private void Start()
@@ -83,45 +92,51 @@ public class ControlGame : MonoBehaviour
         UpdateDistance();
     }
 
-    public void StartGame()
+    public void StartGame(object sender, ObjectInteractEventArgs t_Use)
     {
-        inGame = true;
-        gameTime = 0;
-        try
+        if (inGame == false)
         {
-            e_startGame();
+            if (t_Use.target.gameObject.CompareTag("StartButton"))
+            {
+                inGame = true;
+            gameTime = 0;
+            if (e_startGame != null)
+            {
+                e_startGame();
+                }
+                }
         }
-        catch { }
     }
 
-    IEnumerator ResetLevel() {
+    IEnumerator ResetLevel()
+    {
         yield return new WaitForSeconds(7);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void LoseGame() {
+    public void LoseGame()
+    {
         inGame = false;
         StartCoroutine("ResetLevel");
     }
 
-    void Update() {
+    void Update()
+    {
         if (inGame == true)
         {
             gameTime += Time.deltaTime;
             UpdateDistance();
             UpdateDifficulty();
         }
-        else if (Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("StartGame");
-            StartGame();
-        }
     }
 
-    private void UpdateDifficulty() {
+    private void UpdateDifficulty()
+    {
         difficulty = (gameTime / 30) + 1;
     }
 
-    private void UpdateDistance() {
+    private void UpdateDistance()
+    {
         CalculateDistance();
 
         if (CheckDistanceToLose())
@@ -151,11 +166,11 @@ public class ControlGame : MonoBehaviour
     // Update is called once per frame
     private void CalculateDistance()
     {
-        distance = ((m_ship.Velocity - m_enemy.Velocity)); 
+        distance = ((m_ship.Velocity - m_enemy.Velocity));
     }
 
     private bool CheckDistanceInDanger()//comprueba si el alien esta cerca de la nave
-    { 
+    {
         if (distance <= dangerDistance)
         {
             return true;
@@ -166,7 +181,8 @@ public class ControlGame : MonoBehaviour
 
     private bool CheckDistanceToLose() //Comprueba si el alien llego a la nave
     {
-        if (distance <= distanceMin) {
+        if (distance <= distanceMin)
+        {
             return true;
         }
 

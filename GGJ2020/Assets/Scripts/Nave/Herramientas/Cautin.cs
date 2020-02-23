@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Cautin : ActiveTool
 {
-    private int numCableToRepair;
     [SerializeField]
-    private float capacityToRepair;
+    private float capacityToRepair, capacityToRepairWithTest;
 
     override public void Use() {
         inUse =true;
@@ -19,22 +18,29 @@ public class Cautin : ActiveTool
         Notify();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Cables"))
-        {
-            numCableToRepair = collision.gameObject.GetComponent<Cable>().NumCable;
-        }
-    }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Cables")) {
+        if (collider.gameObject.CompareTag("Cables"))
+        {
             if (inUse)
             {
-
-                Ship.Instance.ApplyCableHeal(numCableToRepair, capacityToRepair * Time.deltaTime);
+                collider.gameObject.GetComponent<Cable>().Heal(capacityToRepair);
             }
         }
+
+        if (collider.gameObject.CompareTag("Test"))
+        {
+            if (inUse)
+            {
+                Test t_test = collider.gameObject.GetComponent<Test>();
+                if (t_test.Manager.PartDestruible is Cable)
+                {
+                    t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest);
+                    t_test.OnCompleteTest();
+                }
+            }
+        }
+
     }
 }

@@ -30,7 +30,7 @@ public class BugHand : MonoBehaviour
         vrtkUse.ControllerUseInteractableObject += UseTool;
         vrtkUse.ControllerUnuseInteractableObject += UnUseTool;
 
-
+        
         /*
          Pendiente el uso del pointer para el hub 
          

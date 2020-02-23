@@ -27,6 +27,15 @@ public class Cable : PartDestruible
         }
     }
 
+    override public void Heal(float value)
+    {
+        Ship.Instance.ApplyCableHeal(numCable, value * Time.deltaTime);
+    }
+
+    override public float GetHeal()
+    {
+        return Ship.Instance.CablesHealth[numCable];
+    }
 
     private bool isCoroutineRunning;
     override protected IEnumerator UpdateDamage()
@@ -58,4 +67,6 @@ public class Cable : PartDestruible
         
 
     }
+
+
 }

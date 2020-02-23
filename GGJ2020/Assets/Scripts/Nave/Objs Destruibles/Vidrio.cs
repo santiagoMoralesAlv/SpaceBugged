@@ -18,10 +18,25 @@ public class Vidrio : PartDestruible
     // Update is called once per frame
     override public void UpdatePart()
     {
-        //m_material.color = new Color(1,1,1, 1-Ship.Instance.GlassClarity);
-        StartCoroutine("UpdateDamage");
+        //if(coroutin)
+        if (!isCoroutineRunning)
+        {
+            isCoroutineRunning = true;
+            StartCoroutine("UpdateDamage");
+        }
     }
 
+    override public void Heal(float value)
+    {
+        Ship.Instance.ApplyGlassHeal(value);
+    }
+
+    override public float GetHeal()
+    {
+        return Ship.Instance.GlassClarity;
+    }
+
+    private bool isCoroutineRunning;
     override protected IEnumerator UpdateDamage()
     {
         while ((Mathf.Round(  m_material.GetFloat("_alpha")*100) != Mathf.Round( (1 - Ship.Instance.GlassClarity) * 100)))

@@ -12,6 +12,12 @@ TagManager:
   - Esfera
   - Herramienta
   - Bolsillo
+  - ExcludeTeleport
+  - Test
+  - Vidrio
+  - StartButton
+  - MovLeftButton
+  - MovRightButton
   layers:
   - Default
   - TransparentFX
