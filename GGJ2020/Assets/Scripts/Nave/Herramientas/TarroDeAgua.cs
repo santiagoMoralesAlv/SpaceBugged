@@ -6,22 +6,59 @@ public class TarroDeAgua : ActiveTool
 {
 
     [SerializeField]
-    private float distanceRay, distanceObj;
+    private float distanceRay;
     private Ray ray;
 
+    [SerializeField]
+    private Transform eje, aim;
+    private Transform tf;
 
-    // Update is called once per frame
+    [SerializeField]
+    private float energy, radius, capacityToCharge;
+
+    private void Awake()
+    {
+        tf = this.transform;
+    }
+
+    override public void Use()
+    {
+        base.Use();
+        ThrowRayCast();
+    }
+
+    override public void UnUse()
+    {
+        base.UnUse();
+    }
+
+    private void Update()
+    {
+        capacityToCharge += Time.deltaTime;
+    }
+
     void ThrowRayCast()
     {
-        //se tiene q reemplazar por la direccion del control del oculus
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = new Ray(tf.position, aim.position - tf.position);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, distanceRay, LayerMask.GetMask("Vidrio"), QueryTriggerInteraction.Collide))
+        if (Physics.SphereCast(eje.position, radius, eje.position+aim.localPosition, out hit, distanceRay, LayerMask.GetMask("Test"), QueryTriggerInteraction.Collide))
         {
-            Ship.Instance.ApplyGlassHeal(0.1f);
+            if (hit.collider.gameObject.CompareTag("GlassTest"))
+            {
+                Test t_test = hit.collider.gameObject.GetComponent<Test>();
+                if (t_test.Manager.PartDestruible is Vidrio)
+                {
+                    float i = Mathf.Clamp(energy, 0, 0.2f);
+                    t_test.Manager.PartDestruible.Heal(i);
+                    energy -= i;
+                    t_test.OnCompleteTest();                    
+                }
+                
+            }
+                
         }
 
-
+        Debug.DrawRay(eje.position, eje.position + aim.localPosition * distanceRay, Color.cyan, 10);
     }
 }
