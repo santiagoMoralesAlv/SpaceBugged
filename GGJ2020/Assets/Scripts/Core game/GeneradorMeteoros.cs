@@ -7,20 +7,21 @@ public class GeneradorMeteoros : MonoBehaviour
     public GameObject[] meteoros;
     public GameObject esferaEnergia;
     [SerializeField]
-    private float intervalo;
-    private float lastTime;
+    private float intervalo, generationRate;
+    [SerializeField]
+    private float time;
 
     void Start()
     {
-        intervalo = Random.Range((ControlGame.Instance.Difficulty) *-3, (ControlGame.Instance.Difficulty) *3);
-        lastTime = Time.time;
+        intervalo = 1;
     }
 
     void Update()
     {
+        time += Time.deltaTime*1;
         if (ControlGame.Instance.InGame)
         {
-            if (Time.time - lastTime > intervalo)
+            if (time > intervalo)
             {
                 int i = Random.Range(0, 10);
 
@@ -32,9 +33,8 @@ public class GeneradorMeteoros : MonoBehaviour
                 {
                     GenerarEsfera();
                 }
-                lastTime = Time.time;
-                intervalo = Random.Range((ControlGame.Instance.Difficulty) * -3, (ControlGame.Instance.Difficulty) * 3);
-
+                intervalo = Random.Range( (1-(ControlGame.Instance.Difficulty/(1+ ControlGame.Instance.Difficulty))) * -generationRate, (1-(ControlGame.Instance.Difficulty / (1 + ControlGame.Instance.Difficulty))) *-generationRate);
+                time = 0;
             }
         }
     }

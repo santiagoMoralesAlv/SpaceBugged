@@ -37,7 +37,7 @@ public class TermoFanton : ActiveTool
         ray = new Ray(tf.position, aim.position- tf.position);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
+        if (Physics.SphereCast(ray,  0.5f, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
         {
             energy += 0.2f;
             Destroy(hit.transform.gameObject);

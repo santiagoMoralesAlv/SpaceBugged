@@ -34,7 +34,7 @@ public class TarroDeAgua : ActiveTool
 
     private void Update()
     {
-        capacityToCharge += Time.deltaTime;
+        energy += Time.deltaTime* capacityToCharge;
     }
 
     void ThrowRayCast()
@@ -42,7 +42,9 @@ public class TarroDeAgua : ActiveTool
         ray = new Ray(tf.position, aim.position - tf.position);
         RaycastHit hit;
 
-        if (Physics.SphereCast(eje.position, radius, eje.position+aim.localPosition, out hit, distanceRay, LayerMask.GetMask("Test"), QueryTriggerInteraction.Collide))
+
+
+        if (Physics.SphereCast(eje.position, radius, aim.position - eje.position, out hit, distanceRay, LayerMask.GetMask("Test"), QueryTriggerInteraction.Collide))
         {
             if (hit.collider.gameObject.CompareTag("GlassTest"))
             {
@@ -58,7 +60,6 @@ public class TarroDeAgua : ActiveTool
             }
                 
         }
-
-        Debug.DrawRay(eje.position, eje.position + aim.localPosition * distanceRay, Color.cyan, 10);
+        
     }
 }

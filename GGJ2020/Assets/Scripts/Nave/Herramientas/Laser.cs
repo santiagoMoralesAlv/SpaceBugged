@@ -20,7 +20,7 @@ public class Laser : ActiveTool
     private void Update()
     {
         if (inUse) {
-            ThrowRayCast();
+            //ThrowRayCast();
         }
     }
 
@@ -35,6 +35,25 @@ public class Laser : ActiveTool
             if (hit.collider.CompareTag("GlassTest")) {
                 hit.collider.GetComponent<Test>().Show(true);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (inUse)
+        {
+            if (collider.CompareTag("GlassTest"))
+            {
+                collider.GetComponent<Test>().Show(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("GlassTest"))
+        {
+            collider.GetComponent<Test>().Show(false);
         }
     }
 

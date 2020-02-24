@@ -36,6 +36,7 @@ public class Vidrio : PartDestruible
         return Ship.Instance.GlassClarity;
     }
 
+    [SerializeField]
     private bool isCoroutineRunning;
     override protected IEnumerator UpdateDamage()
     {
@@ -44,5 +45,7 @@ public class Vidrio : PartDestruible
             m_material.SetFloat("_alpha", Mathf.Lerp(m_material.GetFloat("_alpha"), 1 - Ship.Instance.GlassClarity, 0.1f));
             yield return null;
         }
+        isCoroutineRunning = false;
+
     }
 }
