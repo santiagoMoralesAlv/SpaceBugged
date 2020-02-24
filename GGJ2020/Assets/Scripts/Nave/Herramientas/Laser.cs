@@ -4,13 +4,38 @@ using UnityEngine;
 
 public class Laser : ActiveTool
 {
-    override public void Use()
+
+    [SerializeField]
+    private float distanceRay, radius;
+
+    [SerializeField]
+    private Transform aim, pointA, pointB;
+    private Transform tf;
+
+    private void Awake()
     {
-        Notify();
+        tf = this.transform;
     }
 
-    override public void UnUse()
+    private void Update()
     {
-        Notify();
+        if (inUse) {
+            ThrowRayCast();
+        }
     }
+
+
+    // Update is called once per frame
+    void ThrowRayCast()
+    {
+        RaycastHit hit;
+
+        if (Physics.CapsuleCast(pointA.position, pointB.position, radius, aim.position - tf.position, out hit, distanceRay, LayerMask.GetMask("Test"), QueryTriggerInteraction.Collide))
+        {
+            if (hit.collider.CompareTag("GlassTest")) {
+                hit.collider.GetComponent<Test>().Show(true);
+            }
+        }
+    }
+
 }

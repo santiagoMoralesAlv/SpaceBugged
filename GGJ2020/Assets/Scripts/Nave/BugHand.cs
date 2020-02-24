@@ -6,9 +6,7 @@ using VRTK;
 public class BugHand : MonoBehaviour
 {
 
-    [SerializeField]
     private Tool tool;
-    [SerializeField]
     private bool inGrab;
     private Transform tf;
 
@@ -18,7 +16,9 @@ public class BugHand : MonoBehaviour
     private VRTK_InteractUse vrtkUse;
     [SerializeField]
     private VRTK_Pointer vrtkPointer;
-    
+    [SerializeField]
+    private VRTK_InteractNearTouch vrtkNearTouch;
+
 
     private void Awake()
     {
@@ -30,7 +30,11 @@ public class BugHand : MonoBehaviour
         vrtkUse.ControllerUseInteractableObject += UseTool;
         vrtkUse.ControllerUnuseInteractableObject += UnUseTool;
 
-        
+        vrtkUse.ControllerUseInteractableObject += UseTool;
+        vrtkUse.ControllerUnuseInteractableObject += UnUseTool;
+
+        vrtkNearTouch.ControllerNearTouchInteractableObject += NearTouch;
+        vrtkNearTouch.ControllerNearUntouchInteractableObject += NearUnTouch;
         /*
          Pendiente el uso del pointer para el hub 
          
@@ -47,7 +51,6 @@ public class BugHand : MonoBehaviour
             inGrab = true;
         }
     }
-
     private void ReleaseTool(object sender, ObjectInteractEventArgs t_grab)
     {
         if (t_grab.target.gameObject.CompareTag("Herramienta"))
@@ -63,27 +66,35 @@ public class BugHand : MonoBehaviour
         {
             if(tool is ActiveTool)
             {
-
                 (tool as ActiveTool).Use();
             }
-
         }
     }
-
     private void UnUseTool(object sender, ObjectInteractEventArgs t_Use)
     {
         if (tool != null)
         {
             if (tool is ActiveTool)
             {
-
                 (tool as ActiveTool).UnUse();
             }
-
         }
     }
 
 
+    private void NearTouch(object sender, ObjectInteractEventArgs t_Use)
+    {
+        if (t_Use.target.CompareTag("Test")) {
+            t_Use.target.GetComponent<Test>().Show(true);
+        }
+    }
+    private void NearUnTouch(object sender, ObjectInteractEventArgs t_Use)
+    {
+        if (t_Use.target.CompareTag("Test"))
+        {
+            t_Use.target.GetComponent<Test>().Show(false);
+        }
+    }
 
 
     private void OnTriggerEnter(Collider collider)

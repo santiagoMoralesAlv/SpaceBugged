@@ -7,17 +7,6 @@ public class Martillo : ActiveTool
     [SerializeField]
     private float capacityToRepair, capacityToRepairWithTest;
 
-    override public void Use()
-    {
-        inUse = true;
-        Notify();
-    }
-
-    override public void UnUse()
-    {
-        inUse = false;
-        Notify();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

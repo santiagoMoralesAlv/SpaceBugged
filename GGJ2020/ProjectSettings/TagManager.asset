@@ -18,6 +18,7 @@ TagManager:
   - StartButton
   - MovLeftButton
   - MovRightButton
+  - GlassTest
   layers:
   - Default
   - TransparentFX
@@ -35,8 +36,8 @@ TagManager:
   - ObjNoDestruible
   - Nave
   - Vidrio
-  - 
-  - 
+  - Test
+  - GlassTest
   - 
   - 
   - 

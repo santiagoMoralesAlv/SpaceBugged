@@ -18,8 +18,10 @@ public class FuenteEnergia : PartDestruible
     // Update is called once per frame
     override public void UpdatePart()
     {
+        /*
         var emi = m_particles.emission.rateOverTime;
         emi.constant = Ship.Instance.Gas*20;
+        */
     }
 
     override public void Heal(float value)
@@ -34,6 +36,7 @@ public class FuenteEnergia : PartDestruible
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.CompareTag("TermoFanton")) {
             if (other.gameObject.GetComponent<TermoFanton>().ConnectToFuente())
             {
@@ -42,6 +45,7 @@ public class FuenteEnergia : PartDestruible
                 other.transform.rotation = Quaternion.identity;
             }
         }
+        */
     }
 
     override protected IEnumerator UpdateDamage()

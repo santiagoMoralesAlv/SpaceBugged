@@ -24,14 +24,4 @@ public class TarroDeAgua : ActiveTool
 
 
     }
-    override public void Use()
-    {
-        Notify();
-    }
-
-    override public void UnUse()
-    {
-        Notify();
-    }
-
 }

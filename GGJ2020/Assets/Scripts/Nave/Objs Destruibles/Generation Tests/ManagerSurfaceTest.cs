@@ -24,6 +24,12 @@ public class ManagerSurfaceTest : ManagerTest
         base.Awake();
         mesh = this.GetComponent<MeshFilter>();
         GenerateNewTest();
+        GenerateNewTest();
+        GenerateNewTest();
+        GenerateNewTest();
+        GenerateNewTest();
+        GenerateNewTest();
+        GenerateNewTest();
     }
     override public void GenerateNewTest()
     {
@@ -65,9 +71,9 @@ public class ManagerSurfaceTest : ManagerTest
         return Vector3.zero;
     }
 
-    private void CompleteTest()
+    private void CompleteTest(GameObject obj)
     {
-        Destroy(test.gameObject);
+        Destroy(obj);
         GenerateNewTest();
     }
 

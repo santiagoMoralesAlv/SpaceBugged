@@ -10,8 +10,17 @@ public abstract class ActiveTool : Tool
 
     protected bool inUse;
 
-    public abstract void Use();
-    public abstract void UnUse();
+    virtual public void Use()
+    {
+        inUse = true;
+        Notify();
+    }
+
+    virtual public void UnUse()
+    {
+        inUse = false;
+        Notify();
+    }
 
     protected void Notify()
     {

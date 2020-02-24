@@ -18,11 +18,5 @@ public abstract class ManagerTest : MonoBehaviour
     virtual protected void Awake()
     {
         partDestruible = this.GetComponent<PartDestruible>();
-        Ship.Instance.e_UpdateParts += CheckHideOrUnHide;
-    }
-
-    private void CheckHideOrUnHide()
-    {
-        test.gameObject.SetActive(partDestruible.GetHeal() != 1f);
     }
 }

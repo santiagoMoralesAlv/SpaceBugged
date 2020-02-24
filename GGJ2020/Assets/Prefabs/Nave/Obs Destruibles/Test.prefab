@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8952517325161574898}
+  - component: {fileID: 459748659098611048}
   - component: {fileID: 4780848792879760317}
   - component: {fileID: 7590257795377219074}
   - component: {fileID: 164175873068748900}
-  - component: {fileID: 459748659098611048}
-  m_Layer: 0
+  - component: {fileID: 4540285751111089094}
+  m_Layer: 16
   m_Name: Test
   m_TagString: Test
   m_Icon: {fileID: 0}
@@ -35,6 +36,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &459748659098611048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505156011988463106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2bd506cff068e4bab7b870d3771c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShowing: 0
+  Sprite: {fileID: 1950442280127532958}
 --- !u!135 &4780848792879760317
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -86,7 +101,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &459748659098611048
+--- !u!114 &4540285751111089094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +110,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1505156011988463106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c2bd506cff068e4bab7b870d3771c89, type: 3}
+  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  allowedNearTouchControllers: 0
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 0
+  stayGrabbedOnTeleport: 0
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  objectHighlighter: {fileID: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  usingState: 0
 --- !u!1 &1950442280127532958
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8973163682540300447
 Transform:
   m_ObjectHideFlags: 0

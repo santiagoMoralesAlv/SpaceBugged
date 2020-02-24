@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1387901962869537639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4293433253912703160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd4ce09dac1b374fab61474aed6f79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isShowing: 0
-  Sprite: {fileID: 3776102585860804900}
-  distanceMinToChangePoint: 0.05
-  velocity: 0.2
---- !u!1001 &3419979932310003386
+--- !u!1001 &5259286293076273393
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -26,22 +10,32 @@ PrefabInstance:
     - target: {fileID: 1505156011988463106, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_Name
-      value: MovTest
+      value: GlassTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505156011988463106, guid: a7bba6b380963034fa6f14e97cfa8d11,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505156011988463106, guid: a7bba6b380963034fa6f14e97cfa8d11,
+        type: 3}
+      propertyPath: m_TagString
+      value: GlassTest
       objectReference: {fileID: 0}
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.135
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.415
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
@@ -76,30 +70,34 @@ PrefabInstance:
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -71.93201
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8952517325161574898, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7590257795377219074, guid: a7bba6b380963034fa6f14e97cfa8d11,
+    - target: {fileID: 8647989969329340966, guid: a7bba6b380963034fa6f14e97cfa8d11,
         type: 3}
-      propertyPath: m_IsContraintActive
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8647989969329340966, guid: a7bba6b380963034fa6f14e97cfa8d11,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647989969329340966, guid: a7bba6b380963034fa6f14e97cfa8d11,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647989969329340966, guid: a7bba6b380963034fa6f14e97cfa8d11,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a8b49f17161b904f8d7c9496ddb7a41,
+        type: 3}
     m_RemovedComponents:
-    - {fileID: 459748659098611048, guid: a7bba6b380963034fa6f14e97cfa8d11, type: 3}
+    - {fileID: 4540285751111089094, guid: a7bba6b380963034fa6f14e97cfa8d11, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a7bba6b380963034fa6f14e97cfa8d11, type: 3}
---- !u!1 &4293433253912703160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1505156011988463106, guid: a7bba6b380963034fa6f14e97cfa8d11,
-    type: 3}
-  m_PrefabInstance: {fileID: 3419979932310003386}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3776102585860804900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1950442280127532958, guid: a7bba6b380963034fa6f14e97cfa8d11,
-    type: 3}
-  m_PrefabInstance: {fileID: 3419979932310003386}
-  m_PrefabAsset: {fileID: 0}

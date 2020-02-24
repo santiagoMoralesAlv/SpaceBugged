@@ -8,95 +8,50 @@ public class TermoFanton : ActiveTool
     private float distanceRay;
     private Ray ray;
 
+    [SerializeField]
+    private Transform aim;
+    private Transform tf;
+
+    [SerializeField]
     private float energy;
 
-    private bool inFuente, inDowntime;
-    [SerializeField]
-    private float downtimeToIntWithFuente;
-
-    [SerializeField]
-    private ParticleSystem particulasExternas, particulasInternas;
-    [SerializeField]
-    private GameObject aim;
-
-    [SerializeField]
-    private OVRGrabbable m_grabbable;
-    private OVRInput.Controller m_controller = OVRInput.Controller.None;
-
-
+    private void Awake()
+    {
+        tf = this.transform;
+    }
 
     override public void Use()
     {
-        Notify();
+        base.Use();
+        ThrowRayCast();
     }
 
     override public void UnUse()
     {
-        Notify();
+        base.UnUse();
     }
-
-
+       
     // Update is called once per frame
     void ThrowRayCast()
     {
-        //se tiene q reemplazar por la direccion del control del oculus
-        ray = new Ray(this.transform.position, aim.transform.position-this.transform.position);
+        ray = new Ray(tf.position, aim.position- tf.position);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
         {
-            energy += 0.01f;
-
-            var emi = particulasInternas.emission.rateOverTime;
-            emi.constant = energy * 20;
+            energy += 0.2f;
+            Destroy(hit.transform.gameObject);
         }
 
-        Debug.DrawRay(this.transform.position, aim.transform.position - this.transform.position, Color.cyan, 2);
-        particulasExternas.Play();
+        //Debug.DrawRay(ray.origin, ray.direction*distanceRay, Color.cyan, 10);
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider collider)
     {
-        if (m_grabbable.isGrabbed && inFuente && !inDowntime) {
-            DisconnectToFuente();
-        }
-
-        if (m_grabbable.isGrabbed) {
-            ThrowRayCast();
-        }
-    }
-
-    public bool ConnectToFuente()
-    {
-        if (!inDowntime)
+        if (collider.gameObject.CompareTag("FuenteEnergia"))
         {
-            inFuente = true;
-            //m_grabbable.allowOffhandGrab = false;
-
-            Ship.Instance.ApplyGasHeal(energy);
+            collider.gameObject.GetComponent<FuenteEnergia>().Heal(energy);
             energy = 0;
-            StartCoroutine("ResetDownTime");
-            return true;
         }
-        return false;
-    }
-    public bool DisconnectToFuente()
-    {
-        if (!inDowntime)
-        {
-            inFuente = false;
-            StartCoroutine("ResetDownTime");
-            return true;
-        }
-        return false;
-    }
-
-    IEnumerator ResetDownTime()
-    {
-        inDowntime = true;
-        yield return new WaitForSeconds(downtimeToIntWithFuente);
-        //m_grabbable.allowOffhandGrab = true;
-        inFuente = !inFuente;
-        inDowntime = false;
     }
 }

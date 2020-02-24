@@ -25,9 +25,9 @@ public class ManagerClassicTest : ManagerTest
         test.e_Complete += CompleteTest;
     }
 
-    private void CompleteTest()
+    private void CompleteTest(GameObject obj)
     {
-        Destroy(test.gameObject);
+        Destroy(obj);
         GenerateNewTest();
     }
 
