@@ -5,12 +5,12 @@ using UnityEngine;
 public class Meteoro : MonoBehaviour
 {
     private Transform tr;
+    [SerializeField]
     private float speed;
     public GameObject sonido;
 
     void Start()
     {
-        speed = 0.05f;
         tr = GetComponent<Transform>();
     }
     

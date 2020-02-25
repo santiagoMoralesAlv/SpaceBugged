@@ -33,7 +33,7 @@ public class ControlGame : MonoBehaviour
     [SerializeField]
     private float difficulty;
     [SerializeField]
-    private float gameTime;
+    private float gameTime, level;
 
 
     [SerializeField]
@@ -60,6 +60,13 @@ public class ControlGame : MonoBehaviour
         }
     }
 
+    public float Level
+    {
+        get
+        {
+            return level;
+        }
+    }
     public float Difficulty
     {
         get
@@ -81,7 +88,7 @@ public class ControlGame : MonoBehaviour
 
         e_loseGame += LoseGame;
         UpdateDifficulty();
-
+        UpdateLevel();
 
         vrtkUseIzq.ControllerUseInteractableObject += StartGame;
         vrtkUseDer.ControllerUseInteractableObject += StartGame;
@@ -126,13 +133,19 @@ public class ControlGame : MonoBehaviour
         {
             gameTime += Time.deltaTime;
             UpdateDistance();
+            UpdateLevel();
             UpdateDifficulty();
         }
     }
 
     private void UpdateDifficulty()
     {
-        difficulty = (gameTime / 30) + 1;
+        difficulty = (level-1f)/((level-1f)+2.5f);
+    }
+
+    private void UpdateLevel()
+    {
+        level = (gameTime / 30f) + 1f;
     }
 
     private void UpdateDistance()
@@ -158,7 +171,11 @@ public class ControlGame : MonoBehaviour
             if (CheckDistanceInDanger())
             {
                 //Se entro en zona de peligro
-                e_enterDangerZone();
+                if (e_enterDangerZone != null)
+                {
+                    e_enterDangerZone();
+                }
+
             }
         }
     }
