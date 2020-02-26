@@ -5,6 +5,8 @@ using UnityEngine;
 public class SkillControl : MonoBehaviour
 {
     #region player
+
+    [SerializeField]
     private int levelPlayer;
 
     public int LevelPlayer
@@ -29,67 +31,78 @@ public class SkillControl : MonoBehaviour
         levelPlayer = 1;
     }
 
-    public void ShowPlayerHub() {
-        if (levelPlayer > 1)
-        {
-            showingPlayerHub = !showingPlayerHub;
-            playerHub.SetActive(showingPlayerHub);
-        }
-    }
-    public void ShowRadar()
+    private void Update()
     {
-        if (levelPlayer > 1)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            showingRadar = !showingRadar;
-            playerHub.SetActive(showingRadar);
+            UpgradeLevel();
         }
     }
 
-    public void ShowPocket1A(bool state)
+    public void UpgradeLevel()
     {
-        if (levelPlayer >= 3)
-        {
-            pocket1A.SetActive(state);
-            pocket2A.SetActive(!state);
-        }
-    }
-    public void ShowPocket2A(bool state)
-    {
-        if (levelPlayer >= 3)
-        {
-            pocket2A.SetActive(state);
-            pocket1A.SetActive(!state);
-        }
-    }
-    public void ShowPocket1B(bool state)
-    {
-        if (levelPlayer == 4)
-        {
-            pocket1B.SetActive(state);
-            pocket2B.SetActive(!state);
-        }
-    }
-    public void ShowPocket2B(bool state)
-    {
-        if (levelPlayer >= 4)
-        {
-            pocket2B.SetActive(state);
-            pocket1B.SetActive(!state);
-        }
-    }
-
-    public void UpgradeLevel() {
-        if (levelPlayer < 4)
+        if (levelPlayer < 5)
         {
             levelPlayer++;
         }
 
-        if (levelPlayer == 2)
+        if (levelPlayer == 3)
         {
             pointerA.enabled = true;
             pointerB.enabled = true;
         }
     }
+
+    public void ShowPlayerHub(bool value) {
+        if (levelPlayer > 1)
+        {
+            showingPlayerHub = value;
+            playerHub.SetActive(value);
+        }
+    }
+    public void ShowRadar(bool value)
+    {
+        if (levelPlayer > 1)
+        {
+            showingRadar = value;
+            radar.SetActive(value);
+        }
+    }
+
+    public void ShowPocket1A(bool state)
+    {
+        if (levelPlayer >= 4)
+        {
+            pocket1A.SetActive(state);
+        }
+        pocket2A.SetActive(false);
+    }
+    public void ShowPocket2A(bool state)
+    {
+        if (levelPlayer >= 4)
+        {
+            pocket2A.SetActive(state);
+        }
+        pocket1A.SetActive(false);
+    }
+    public void ShowPocket1B(bool state)
+    {
+        if (levelPlayer == 5)
+        {
+            pocket1B.SetActive(state);
+        }
+        pocket2B.SetActive(false);
+    }
+    public void ShowPocket2B(bool state)
+    {
+        if (levelPlayer >= 5)
+        {
+            pocket2B.SetActive(state);
+        }
+        pocket1B.SetActive(false);
+    }
+
+    
 
 
 }
