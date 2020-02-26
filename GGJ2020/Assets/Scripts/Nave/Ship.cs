@@ -19,6 +19,9 @@ public class Ship : MonoBehaviour
     }
     #endregion
 
+    
+
+    #region var
     [SerializeField]
     private float motorHealth, gas, glassClarity;
     [SerializeField]
@@ -30,7 +33,9 @@ public class Ship : MonoBehaviour
     
     [SerializeField]
     private Transform goHerramientas;
+    #endregion
 
+    #region properties
     public float MotorHealth
     {
         get
@@ -81,6 +86,8 @@ public class Ship : MonoBehaviour
     }
 
     public Transform GoHerramientas { get => goHerramientas;  }
+    #endregion
+
 
     void Awake()
     {
@@ -104,17 +111,13 @@ public class Ship : MonoBehaviour
         int i = (int)Random.Range(0, 3);
         switch (i) {
             case 0:
-                ApplyMotorDamage( (ControlGame.Instance.Difficulty-1) );
+                ApplyMotorDamage( (ControlGame.Instance.Difficulty*0.8f) );
                 break;
             case 1:
-
-                ApplyCableDamage((ControlGame.Instance.Difficulty - 1));
+                ApplyCableDamage((ControlGame.Instance.Difficulty * 0.8f));
                 break;
             case 2:
-                ApplyGlassDamage((ControlGame.Instance.Difficulty - 1));
-                break;
-            case 3:
-                ApplyHandleDamage();
+                ApplyGlassDamage((ControlGame.Instance.Difficulty * 0.8f));
                 break;
         }
 
@@ -124,6 +127,7 @@ public class Ship : MonoBehaviour
     private void ApplySlowdown (){
         slowdown += 1;
     }
+
 
     private void ApplyMotorDamage(float t_Damage) {
 
@@ -140,6 +144,11 @@ public class Ship : MonoBehaviour
         if (cablesHealth[i] < 0) {
             cablesHealth[i] = 0;
         }
+    }
+    private void ApplyGasDamage()
+    {
+        gas -= Time.deltaTime * (0.01f * ControlGame.Instance.Difficulty);
+        Mathf.Clamp(gas,0f,1f);
     }
     private void ApplyGlassDamage(float t_Damage)
     {
@@ -202,7 +211,7 @@ public class Ship : MonoBehaviour
         {
             UpdateVelocity();
 
-            gas -= Time.deltaTime*0.01f;
+            ApplyGasDamage();
         }
     }
 

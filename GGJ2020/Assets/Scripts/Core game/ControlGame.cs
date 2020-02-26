@@ -67,6 +67,13 @@ public class ControlGame : MonoBehaviour
             return level;
         }
     }
+    public float GameTime
+    {
+        get
+        {
+            return gameTime;
+        }
+    }
     public float Difficulty
     {
         get

@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    #region singleton
+    private static Enemy instance;
+
+    public static Enemy Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+    #endregion
+
     [SerializeField]
     private float multDistance=1;
 
@@ -23,9 +35,14 @@ public class Enemy : MonoBehaviour
             return currentVelocity;
         }
     }
-
+    
     void Awake()
     {
+        if (instance != null && instance != this) //posible bug
+        {
+            Destroy(instance.gameObject);
+        }
+        instance = this;
         UpdateVelocity();
         ControlGame.Instance.e_loseGame += Abducir;
     }
