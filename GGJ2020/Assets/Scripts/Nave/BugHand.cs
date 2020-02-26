@@ -81,7 +81,6 @@ public class BugHand : MonoBehaviour
         }
     }
 
-
     private void NearTouch(object sender, ObjectInteractEventArgs t_Use)
     {
         if (t_Use.target.CompareTag("Test")) {
@@ -95,8 +94,7 @@ public class BugHand : MonoBehaviour
             t_Use.target.GetComponent<Test>().Show(false);
         }
     }
-
-
+    
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.CompareTag("Bolsillo"))
@@ -104,44 +102,5 @@ public class BugHand : MonoBehaviour
             //mOSTRAR HERRAMINETA EN EL BOLSILLO
         }
     }
-
-    private void OnTriggerStay(Collider collider)
-    { 
-        //OUTDATE
-        /*
-        if (collider.CompareTag("Herramienta")) {
-            if (Input.GetKeyDown(KeyCode.E) && !inGrab) {
-                if (!collider.gameObject.GetComponent<Tool>().IsGrabbed)
-                {
-                    GrabTool(collider.gameObject);
-                }
-            }
-        }*/
-
-        /*
-        if (collider.CompareTag("Bolsillo")) {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (collider.GetComponent<Pocket>().HasTool()) {
-                    GrabTool(collider.GetComponent<Pocket>().TakeOutTool());
-                }
-            }
-
-            if (Input.GetKeyUp(KeyCode.F) && Input.GetKey(KeyCode.W))
-            {
-                //se guarda por si existe otra herramienta almacenada
-                ReleaseTool();
-                GameObject t_tool = collider.GetComponent<Pocket>().SaveTool(tool);
-                tool = null;
-                if (t_tool != null) //por si efectivamente devuelve una herramienta
-                {
-                    GrabTool(t_tool);
-                }
-            }
-        }
-        */
-    }
-
-
-
+    
 }

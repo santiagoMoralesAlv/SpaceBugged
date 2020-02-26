@@ -39,7 +39,7 @@ public class TermoFanton : ActiveTool
 
         if (Physics.SphereCast(ray,  0.5f, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
         {
-            energy += 0.2f;
+            energy += (0.4f* ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f));
             Destroy(hit.transform.gameObject);
         }
 

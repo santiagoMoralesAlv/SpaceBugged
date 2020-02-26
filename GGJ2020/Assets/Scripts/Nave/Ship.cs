@@ -33,9 +33,20 @@ public class Ship : MonoBehaviour
     
     [SerializeField]
     private Transform goHerramientas;
+
+    [SerializeField]
+    private SkillControl skillControl;
     #endregion
 
     #region properties
+    public SkillControl SkillControl
+    {
+        get
+        {
+            return skillControl;
+        }
+    }
+
     public float MotorHealth
     {
         get

@@ -51,7 +51,7 @@ public class TarroDeAgua : ActiveTool
                 Test t_test = hit.collider.gameObject.GetComponent<Test>();
                 if (t_test.Manager.PartDestruible is Vidrio)
                 {
-                    float i = Mathf.Clamp(energy, 0, 0.2f);
+                    float i = Mathf.Clamp(energy, 0, (0.2f* ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f)));
                     t_test.Manager.PartDestruible.Heal(i);
                     energy -= i;
                     t_test.OnCompleteTest();                    

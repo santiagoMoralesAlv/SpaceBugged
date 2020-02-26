@@ -28,7 +28,7 @@ public class CoreStatsGUI : MonoBehaviour
         playerVelocity.text = "Tu velocidad: " + Ship.Instance.Velocity + "";
         distance.text = ((int)(ControlGame.Instance.Distance * 100)) * 0.01f + " Km";
 
-        playerLevel.text = "0";
+        playerLevel.text = Ship.Instance.SkillControl.LevelPlayer+"";
         Level.text = (int)(ControlGame.Instance.Level) + "";
         gameTime.text = (int)(ControlGame.Instance.GameTime) + "";
     }

@@ -14,7 +14,7 @@ public class Martillo : ActiveTool
         {
             if (inUse)
             {
-                collision.gameObject.GetComponent<Motor>().Heal(capacityToRepair);
+                collision.gameObject.GetComponent<Motor>().Heal(capacityToRepair* ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f));
             }
         }
 
@@ -25,7 +25,7 @@ public class Martillo : ActiveTool
                 Test t_test = collision.gameObject.GetComponent<Test>();
                 if (t_test.Manager.PartDestruible is Motor)
                 {
-                    t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest);
+                    t_test.Manager.PartDestruible.Heal(capacityToRepairWithTest* ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f));
                     t_test.OnCompleteTest();
                 }
             }

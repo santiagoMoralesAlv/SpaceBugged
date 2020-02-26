@@ -8,6 +8,7 @@ public class SkillControl : MonoBehaviour
 
     [SerializeField]
     private int levelPlayer;
+    private float timeToUpgradeLevel;
 
     public int LevelPlayer
     {
@@ -28,14 +29,20 @@ public class SkillControl : MonoBehaviour
 
     private void Awake()
     {
-        levelPlayer = 1;
+        timeToUpgradeLevel = 20;
+        levelPlayer = 0;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (ControlGame.Instance.InGame)
         {
-            UpgradeLevel();
+            timeToUpgradeLevel += Time.deltaTime;
+            if (timeToUpgradeLevel >= 20)
+            {
+                UpgradeLevel();
+                timeToUpgradeLevel = 0;
+            }
         }
     }
 
@@ -103,6 +110,4 @@ public class SkillControl : MonoBehaviour
     }
 
     
-
-
 }
