@@ -6,8 +6,10 @@ public class Meteoro : MonoBehaviour
 {
     private Transform tr;
     [SerializeField]
-    private float speed;
+    private float speed, slowdown;
     public GameObject sonido;
+    [SerializeField]
+    private bool applyDamage;
 
     void Start()
     {
@@ -36,8 +38,12 @@ public class Meteoro : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ship"))
         {
-            Ship.Instance.ApplyRandomDamage();
-            Instantiate(sonido);
+            Ship.Instance.ApplySlowdown(slowdown);
+            if (applyDamage)
+            {
+                Ship.Instance.ApplyRandomDamage();
+            }
+            //Instantiate(sonido);
             Destroy(this.gameObject);
         }
     }

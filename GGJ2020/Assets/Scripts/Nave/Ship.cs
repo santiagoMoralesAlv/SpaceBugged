@@ -109,15 +109,8 @@ public class Ship : MonoBehaviour
         instance = this;
         UpdateVelocity();
     }
-
-    private void Start()
-    {
-
-        //e_UpdateParts();
-    }
-
+    
     public void ApplyRandomDamage() {
-        ApplySlowdown();
 
         int i = (int)Random.Range(0, 3);
         switch (i) {
@@ -135,8 +128,8 @@ public class Ship : MonoBehaviour
         e_UpdateParts();
     }
 
-    private void ApplySlowdown (){
-        slowdown += 1;
+    public void ApplySlowdown (float value){
+        slowdown += value;
     }
 
 
@@ -239,6 +232,6 @@ public class Ship : MonoBehaviour
         }
     }
 
-    
+
 
 }

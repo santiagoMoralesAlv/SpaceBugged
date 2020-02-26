@@ -41,7 +41,7 @@ public class GeneradorMeteoros : MonoBehaviour
 
     void GenerarMeteoro()
     {
-        int i = (int)Mathf.Floor(Random.Range(0,1.9f));
+        int i = (Random.Range(0,3));
 
         Vector3 pos = new Vector3(60, Random.Range(-7f, 7f), Ship.Instance.gameObject.transform.localPosition.z + Random.Range(-40, 40));
 
