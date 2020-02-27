@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Tools
+{
+    Martillo,
+    Termofanton,
+    Cautin,
+    Mascara,
+    Laser,
+    TarroAgua
+}
+
 public abstract class Tool : MonoBehaviour
 {
     public delegate void UpdateState (bool state);
-    public UpdateState OnGrab;
+    public UpdateState e_OnGrab;
     
     private bool isGrabbed;
 
@@ -14,18 +24,18 @@ public abstract class Tool : MonoBehaviour
 
     public void TakeTool() {
         isGrabbed = true;
-        Notify();
+        NotifyGrab();
     }
 
     public void DropTool() {
         isGrabbed = false;
-        Notify();
+        NotifyGrab();
     }
 
-    private void Notify() {
+    private void NotifyGrab() {
         try
         {
-            OnGrab(isGrabbed);
+            e_OnGrab(isGrabbed);
         }
         catch {
         }

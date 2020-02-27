@@ -1,34 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class ActiveTool : Tool
+public class ActiveButton : MonoBehaviour
 {
-    public Tool.UpdateState e_InUse;
+    public Tool.UpdateState e_UpdateState;
 
     protected bool inUse;
 
     virtual public void Use()
     {
         inUse = true;
-        NotifyUse();
+        Notify();
     }
 
     virtual public void UnUse()
     {
         inUse = false;
-        NotifyUse();
+        Notify();
     }
 
-    protected void NotifyUse()
+    protected void Notify()
     {
 
         try
         {
-            e_InUse(inUse);
+            e_UpdateState(inUse);
         }
         catch
         {
         }
     }
+
 }

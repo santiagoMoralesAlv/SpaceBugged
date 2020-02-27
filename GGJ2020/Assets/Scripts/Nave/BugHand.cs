@@ -45,7 +45,6 @@ public class BugHand : MonoBehaviour
     private void GrabTool(object sender, ObjectInteractEventArgs t_grab) {
         if (t_grab.target.gameObject.CompareTag("Herramienta"))
         {
-
             tool = t_grab.target.GetComponent<Tool>();
             tool.TakeTool();
             inGrab = true;
@@ -62,12 +61,17 @@ public class BugHand : MonoBehaviour
 
     private void UseTool(object sender, ObjectInteractEventArgs t_Use)
     {
+        if(t_Use.target == tool) { 
         if (tool != null)
         {
             if(tool is ActiveTool)
             {
                 (tool as ActiveTool).Use();
             }
+        }
+        }else if (t_Use.target.CompareTag("Button"))
+        {
+            t_Use.target.GetComponent<ActiveButton>().Use();
         }
     }
     private void UnUseTool(object sender, ObjectInteractEventArgs t_Use)
@@ -94,13 +98,5 @@ public class BugHand : MonoBehaviour
             t_Use.target.GetComponent<Test>().Show(false);
         }
     }
-    
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.CompareTag("Bolsillo"))
-        {
-            //mOSTRAR HERRAMINETA EN EL BOLSILLO
-        }
-    }
-    
+        
 }

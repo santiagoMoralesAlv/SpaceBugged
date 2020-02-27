@@ -43,7 +43,7 @@ public class Pocket : MonoBehaviour
 
     public void InteractionWithPocket()
     {
-        if (HasTool())
+        if (HasToolIn())
         {
             TakeOutTool();
         }else
@@ -52,15 +52,11 @@ public class Pocket : MonoBehaviour
             {
                 SaveTool();
             }
-            else
-            {
-                TakeOutTool();
-            }
         }
 
     }
 
-    public bool HasTool() {
+    public bool HasToolIn() {
         if (toolIn != null) {
             return true;
         }

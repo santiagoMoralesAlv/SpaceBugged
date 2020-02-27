@@ -19,6 +19,7 @@ TagManager:
   - MovLeftButton
   - MovRightButton
   - GlassTest
+  - Button
   layers:
   - Default
   - TransparentFX

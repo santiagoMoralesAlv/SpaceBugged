@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Ship : MonoBehaviour
 {
-    public UnityAction e_UpdateParts, e_StartGame;
+    public UnityAction e_UpdateParts, e_StartGame, e_GotDamage;
 
     #region singleton
     private static Ship instance;
@@ -126,10 +126,18 @@ public class Ship : MonoBehaviour
         }
 
         e_UpdateParts();
+        if (e_GotDamage != null)
+        {
+            e_GotDamage();
+        }
     }
 
     public void ApplySlowdown (float value){
         slowdown += value;
+        if (e_GotDamage != null)
+        {
+            e_GotDamage();
+        }
     }
 
 

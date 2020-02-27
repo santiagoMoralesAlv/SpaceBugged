@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using VRTK;
 
 public class ControlGame : MonoBehaviour
 {
@@ -27,8 +26,6 @@ public class ControlGame : MonoBehaviour
     [SerializeField]
     private bool inGame, inDangerZone;
 
-    [SerializeField]
-    private VRTK_InteractUse vrtkUseIzq, vrtkUseDer;
 
     [SerializeField]
     private float difficulty;
@@ -94,11 +91,10 @@ public class ControlGame : MonoBehaviour
         instance = this;
 
         e_loseGame += LoseGame;
+
         UpdateDifficulty();
         UpdateLevel();
 
-        vrtkUseIzq.ControllerUseInteractableObject += StartGame;
-        vrtkUseDer.ControllerUseInteractableObject += StartGame;
     }
 
     private void Start()
@@ -106,32 +102,22 @@ public class ControlGame : MonoBehaviour
         UpdateDistance();
     }
 
-    public void StartGame(object sender, ObjectInteractEventArgs t_Use)
+    public void StartGame()
     {
         if (inGame == false)
         {
-            if (t_Use.target.gameObject.CompareTag("StartButton"))
-            {
-                inGame = true;
+            inGame = true;
             gameTime = 0;
             if (e_startGame != null)
             {
                 e_startGame();
-                }
-                }
+            }
         }
-    }
-
-    IEnumerator ResetLevel()
-    {
-        yield return new WaitForSeconds(7);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoseGame()
     {
         inGame = false;
-        StartCoroutine("ResetLevel");
     }
 
     void Update()
