@@ -1,42 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class InverseGravity : ActiveButton
+public class InverseGravity : MonoBehaviour
 {
+    public UnityAction e_Execute;
+
     [SerializeField]
-    private Rigidbody[] tools;
+    private GameObject[] tools;
     [SerializeField]
     private float gravityForce;
 
-    override public void Use()
-    {
-        base.Use();
-        if (ControlGame.Instance.InGame)
-        {
-            SetForce();
-        }else
-        {
-            StartGame();
-            SetForce();
+    [SerializeField]
+    private float distance;
 
+
+    public void Use()
+    {
+        if (Ship.Instance.SkillControl.CanLaunchGravity) {
+            SetForce();
         }
     }
 
     public void SetForce()
     {
-        foreach (Rigidbody tool in tools)
+        bool result = false;
+        foreach (GameObject tool in tools)
         {
-            if (tool.gameObject.activeInHierarchy)
+            if (tool.activeInHierarchy)
             {
-                tool.AddForce(Vector3.up * gravityForce, ForceMode.Impulse);
+                if (Vector3.Distance(this.transform.position, tool.transform.position) > distance)
+                {
+                    tool.GetComponent<Rigidbody>().AddForce((-tool.transform.position + this.transform.position).normalized * gravityForce, ForceMode.Impulse);
+                    result = true;
+                }
             }
-
         }
-    }
 
-    public void StartGame()
-    {
-        ControlGame.Instance.StartGame();
+        if (result && e_Execute != null) {
+            e_Execute();
+        }
     }
 }

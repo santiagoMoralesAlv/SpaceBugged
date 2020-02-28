@@ -10,6 +10,7 @@ public class SkillControl : MonoBehaviour
     private int levelPlayer;
     private float timeToUpgradeLevel;
 
+
     public int LevelPlayer
     {
         get
@@ -19,13 +20,34 @@ public class SkillControl : MonoBehaviour
     }
     #endregion
 
-    private bool showingPlayerHub, showingRadar;
 
     [SerializeField]
-    private VRTK.VRTK_Pointer pointerA, pointerB;
+    private InverseGravity gravitySkill;
+    public InverseGravity GravitySkill { get => gravitySkill; }
+
 
     [SerializeField]
-    private GameObject playerHub, radar, pocket1A, pocket1B, pocket2A, pocket2B; //A = izq, B = Der
+    private bool showingPlayerHub, showingRadar, canLaunchGravity;
+    public bool ShowingPlayerHub { get => showingPlayerHub;}
+    public bool ShowingRadar { get => showingRadar;  }
+    public bool CanLaunchGravity { get => canLaunchGravity; }
+
+
+
+    [SerializeField]
+    private VRTK.VRTK_Pointer pointerB;
+
+    [SerializeField]
+    private GameObject playerHub, radar; //A = izq, B = Der
+
+    [SerializeField]
+    private Pocket pocket1A, pocket1B, pocket2A, pocket2B; //A = izq, B = Der
+
+    public Pocket Pocket1A { get => pocket1A; }
+    public Pocket Pocket1B { get => pocket1B; }
+    public Pocket Pocket2A { get => pocket2A; }
+    public Pocket Pocket2B { get => pocket2B; }
+
 
     private void Awake()
     {
@@ -55,7 +77,7 @@ public class SkillControl : MonoBehaviour
 
         if (levelPlayer == 3)
         {
-            pointerA.enabled = true;
+            canLaunchGravity = true;
             pointerB.enabled = true;
         }
     }
@@ -80,33 +102,33 @@ public class SkillControl : MonoBehaviour
     {
         if (levelPlayer >= 4)
         {
-            pocket1A.SetActive(state);
+            pocket1A.gameObject.SetActive(state);
         }
-        pocket2A.SetActive(false);
+        pocket2A.gameObject.SetActive(false);
     }
     public void ShowPocket2A(bool state)
     {
         if (levelPlayer >= 4)
         {
-            pocket2A.SetActive(state);
+            pocket2A.gameObject.SetActive(state);
         }
-        pocket1A.SetActive(false);
+        pocket1A.gameObject.SetActive(false);
     }
     public void ShowPocket1B(bool state)
     {
         if (levelPlayer == 5)
         {
-            pocket1B.SetActive(state);
+            pocket1B.gameObject.SetActive(state);
         }
-        pocket2B.SetActive(false);
+        pocket2B.gameObject.SetActive(false);
     }
     public void ShowPocket2B(bool state)
     {
         if (levelPlayer >= 5)
         {
-            pocket2B.SetActive(state);
+            pocket2B.gameObject.SetActive(state);
         }
-        pocket1B.SetActive(false);
+        pocket1B.gameObject.SetActive(false);
     }
 
     

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class tut_BasicRules : Tutorial
 {
+    [SerializeField]
     private float time;
     [SerializeField]
     private float timeToWin;
@@ -11,10 +12,15 @@ public class tut_BasicRules : Tutorial
     [SerializeField]
     private bool survived;
 
-    public float Time { get => time; set => time = value; }
+    public float CurrentTime { get => time; set => time = value; }
     public float TimeToWin { get => timeToWin; set => timeToWin = value; }
     public bool Survived { get => survived; set => survived = value; }
-    
+
+    private void Awake()
+    {
+        Ship.Instance.e_GotDamage += LoseTutorial;
+    }
+
     private void Update()
     {
         if (!survived)
@@ -31,6 +37,8 @@ public class tut_BasicRules : Tutorial
 
     public void CheckTime()
     {
+        time += Time.deltaTime;
+
         if (time > timeToWin)
         {
             if (e_completeStep != null)
@@ -41,5 +49,9 @@ public class tut_BasicRules : Tutorial
             survived = true;
         }
     }
-    
+
+    public void LoseTutorial() {
+        SceneControl.Instance.StartTutorial(NumTutorial);
+    }
+
 }

@@ -46,8 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGame: 0
   inDangerZone: 0
-  vrtkUseIzq: {fileID: 0}
-  vrtkUseDer: {fileID: 0}
   difficulty: 0
   gameTime: 0
   level: 0
@@ -68,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5d0ab64e11eac4fab75d94d8725026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreControlGame: 0
   meteoros:
   - {fileID: 3188088517573424192, guid: f1ad86fd6a0a02b47a413417e32e28f3, type: 3}
   - {fileID: 8002912179012293776, guid: 34993da74ecaca94191797f2a151b160, type: 3}
@@ -77,4 +76,6 @@ MonoBehaviour:
   intervalo: 0
   generationRateMin: 2
   generationRateMax: 2.5
-  time: 0
+  instantiateFrontDistance: 60
+  instantiateSideDistance: 40
+  instantiateTopDistance: 7

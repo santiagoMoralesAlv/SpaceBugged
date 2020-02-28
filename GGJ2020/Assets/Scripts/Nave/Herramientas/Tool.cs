@@ -2,16 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Tools
-{
-    Martillo,
-    Termofanton,
-    Cautin,
-    Mascara,
-    Laser,
-    TarroAgua
-}
-
 public abstract class Tool : MonoBehaviour
 {
     public delegate void UpdateState (bool state);
