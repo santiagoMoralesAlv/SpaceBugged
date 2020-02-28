@@ -52,7 +52,6 @@ public class SkillControl : MonoBehaviour
     private void Awake()
     {
         timeToUpgradeLevel = 20;
-        levelPlayer = 0;
     }
 
     private void Update()

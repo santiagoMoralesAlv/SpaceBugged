@@ -5,6 +5,7 @@ using VRTK;
 
 public class tut_Skills : Tutorial
 {
+    [SerializeField]
     private VRTK_DashTeleport teleportSkill;
 
     private bool gravityExecuted, teleported;
@@ -13,6 +14,12 @@ public class tut_Skills : Tutorial
     {
         teleportSkill.Teleported += Teleported;
         Ship.Instance.SkillControl.GravitySkill.e_Execute += GravityExecute;
+    }
+
+    private void Update()
+    {
+
+        CheckStatus();
     }
 
     override protected bool CheckIsComplete()

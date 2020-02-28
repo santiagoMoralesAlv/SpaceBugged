@@ -9,6 +9,25 @@ public class NextTutorialButton : ActiveButton
     [SerializeField]
     private bool toBack;
 
+    private void Awake()
+    {
+        tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
+        if (!toBack) { 
+        this.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (!toBack)
+        {
+            if (tutorial.IsComplete)
+        {
+            this.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
+
     override public void Use()
     {
         base.Use();

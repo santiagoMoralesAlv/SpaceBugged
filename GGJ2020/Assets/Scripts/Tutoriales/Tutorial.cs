@@ -20,8 +20,10 @@ public abstract class Tutorial : MonoBehaviour
     {
         if (CheckIsComplete())
         {
-            isComplete = true;
-            e_completeTutorial(true);
+            if (!isComplete) { 
+                isComplete = true;
+                e_completeTutorial(true);
+            }
         }
     }
 

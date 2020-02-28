@@ -6,14 +6,16 @@ public class RecuperadorDeHerramientas : MonoBehaviour
 {
     [SerializeField]
     private GameObject eje;
-
-    private void OnCollisionEnter(Collision collision)
+    
+    private void OnTriggerExit(Collider other)
     {
-        string tag = collision.gameObject.tag;
+        string tag = other.gameObject.tag;
 
-        switch (tag) {
+        switch (tag)
+        {
             case "Herramienta":
-                collision.gameObject.transform.position = eje.transform.position;
+                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                other.gameObject.transform.position = eje.transform.position;
                 break;
             default:
                 break;

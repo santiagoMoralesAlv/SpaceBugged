@@ -57,12 +57,10 @@ public class SceneControl : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
-        Debug.Log("xxx");
     }
 
     public void StartMenu()
     {
-        Debug.Log("zzz");
         SceneManager.LoadScene("MenuPrincipal");
     }
 }

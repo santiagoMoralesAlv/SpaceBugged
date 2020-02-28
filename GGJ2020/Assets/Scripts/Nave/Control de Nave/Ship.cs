@@ -109,7 +109,13 @@ public class Ship : MonoBehaviour
         instance = this;
         UpdateVelocity();
     }
-    
+
+    private void Start()
+    {
+
+        e_UpdateParts();
+    }
+
     public void ApplyRandomDamage() {
 
         int i = (int)Random.Range(0, 3);

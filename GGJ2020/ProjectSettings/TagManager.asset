@@ -20,6 +20,14 @@ TagManager:
   - MovRightButton
   - GlassTest
   - Button
+  - Leg
+  - SnapCube
+  - Arm
+  - SnapCylinder
+  - Saucers
+  - Torso
+  - Head
+  - Tutorial
   layers:
   - Default
   - TransparentFX

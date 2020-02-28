@@ -51,11 +51,16 @@ public class GeneradorMeteoros : MonoBehaviour
 
     void GenerarMeteoro()
     {
+        if (meteoros.Length != 0) { 
         int i = (Random.Range(0,meteoros.Length));
 
         Vector3 pos = new Vector3(instantiateFrontDistance, Random.Range(0, instantiateTopDistance), Ship.Instance.gameObject.transform.localPosition.z + Random.Range(-instantiateSideDistance, instantiateSideDistance));
 
         Instantiate(meteoros[i], pos, Quaternion.identity, gameObject.transform);
+        }else
+        {
+            GenerarEsfera();
+        }
     }
 
     void GenerarEsfera()
