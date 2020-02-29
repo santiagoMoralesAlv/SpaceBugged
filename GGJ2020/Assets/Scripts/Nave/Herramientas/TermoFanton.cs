@@ -8,12 +8,17 @@ public class TermoFanton : ActiveTool
     private float distanceRay;
     private Ray ray;
 
+    private Vector3 pointHit;
+
     [SerializeField]
     private Transform aim;
     private Transform tf;
 
     [SerializeField]
     private float energy;
+
+    public Vector3 PointHit { get => pointHit;}
+    public Transform Aim { get => aim;}
 
     private void Awake()
     {
@@ -37,10 +42,14 @@ public class TermoFanton : ActiveTool
         ray = new Ray(tf.position, aim.position- tf.position);
         RaycastHit hit;
 
-        if (Physics.SphereCast(ray,  0.5f, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
+        if (Physics.SphereCast(ray, 0.5f, out hit, distanceRay, LayerMask.GetMask("Esferas"), QueryTriggerInteraction.Collide))
         {
-            energy += (0.4f* ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f));
+            energy += (0.4f * ((Ship.Instance.SkillControl.LevelPlayer * 0.5f) / 2.5f));
             Destroy(hit.transform.gameObject);
+            pointHit = hit.point;
+        }
+        else {
+            pointHit = this.transform.position +( ray.direction* distanceRay);
         }
 
         //Debug.DrawRay(ray.origin, ray.direction*distanceRay, Color.cyan, 10);
