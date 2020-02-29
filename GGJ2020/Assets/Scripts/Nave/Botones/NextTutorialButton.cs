@@ -24,6 +24,7 @@ public class NextTutorialButton : ActiveButton
             if (tutorial.IsComplete)
         {
             this.GetComponent<MeshRenderer>().enabled = true;
+                this.GetComponent<BoxCollider>().enabled = true;
             }
         }
     }

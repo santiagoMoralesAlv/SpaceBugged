@@ -270,7 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: -6465566751694194690, guid: 01dd27489b78ed24db9ed2fc85bc3d3f, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -563,8 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: -1
-  modelOverride: arrow
-  shader: {fileID: -6465566751694194690, guid: 716099683290103418b9e8d3b020a314, type: 3}
+  modelOverride: 
+  shader: {fileID: -6465566751694194690, guid: 01dd27489b78ed24db9ed2fc85bc3d3f, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
