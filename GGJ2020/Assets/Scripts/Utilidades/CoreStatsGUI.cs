@@ -24,8 +24,8 @@ public class CoreStatsGUI : MonoBehaviour
     }
 
     private void UpdateBasicStats() {
-        enemyVelocity.text = "Velocidad enemiga: " + Enemy.Instance.Velocity + "";
-        playerVelocity.text = "Tu velocidad: " + Ship.Instance.Velocity + "";
+        enemyVelocity.text = Enemy.Instance.Velocity + "";
+        playerVelocity.text = Ship.Instance.Velocity + "";
         distance.text = ((int)(ControlGame.Instance.Distance * 100)) * 0.01f + " Km";
 
         playerLevel.text = Ship.Instance.SkillControl.LevelPlayer+"";

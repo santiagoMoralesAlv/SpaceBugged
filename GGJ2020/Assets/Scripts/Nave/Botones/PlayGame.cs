@@ -10,6 +10,7 @@ public class PlayGame : ActiveButton
         if (!ControlGame.Instance.InGame)
         {
             ControlGame.Instance.StartGame();
+            this.gameObject.SetActive(false);
         }
     }
 }

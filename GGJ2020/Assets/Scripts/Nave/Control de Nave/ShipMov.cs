@@ -40,6 +40,8 @@ public class ShipMov : MonoBehaviour
         vrtkLeftButton.ControllerUnuseInteractableObject += UnUseButton;
         vrtkRightButton.ControllerUseInteractableObject += UseButton;
         vrtkRightButton.ControllerUnuseInteractableObject += UnUseButton;
+
+        ControlGame.Instance.e_loseGame += DestroyThis;
     }
 
     void Start()
@@ -71,6 +73,11 @@ public class ShipMov : MonoBehaviour
         }
     }
 
+    public void DestroyThis()
+    {
+        Destroy(this);
+    }
+
     void Update()
     {
         currentSpeed = 0;
@@ -80,6 +87,6 @@ public class ShipMov : MonoBehaviour
             currentSpeed += speed;
 
         currentSpeed += currentSpeed*(0.7f+Ship.Instance.SkillControl.LevelPlayer);
-        tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (currentSpeed*Time.deltaTime));
+        tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (-currentSpeed*Time.deltaTime));
     }
 }

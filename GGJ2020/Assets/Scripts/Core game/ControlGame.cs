@@ -118,6 +118,13 @@ public class ControlGame : MonoBehaviour
     public void LoseGame()
     {
         inGame = false;
+        StartCoroutine("ReturnToMenu");
+    }
+
+    IEnumerator ReturnToMenu()
+    {
+        yield return new WaitForSeconds(15f);
+        SceneControl.Instance.StartMenu();
     }
 
     void Update()
@@ -167,6 +174,7 @@ public class ControlGame : MonoBehaviour
                 if (e_enterDangerZone != null)
                 {
                     e_enterDangerZone();
+                    Debug.Log("zona peligro");
                 }
 
             }
