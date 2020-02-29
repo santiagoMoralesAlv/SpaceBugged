@@ -22,17 +22,20 @@ public class Music : MonoBehaviour
     
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         if (instance != null && instance != this) //posible bug
         {
             Destroy(this.gameObject);
             instance.UpdateScene();
         }
-        else {
+        else
+        {
+            DontDestroyOnLoad(this);
             instance = this;
+            audioSource.clip = songs[0];
+            audioSource.Play();
         }
 
-        DontDestroyOnLoad(this);
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void StartMenu()
