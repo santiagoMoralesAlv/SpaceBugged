@@ -28,6 +28,7 @@ TagManager:
   - Torso
   - Head
   - Tutorial
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -47,7 +48,7 @@ TagManager:
   - Vidrio
   - Test
   - GlassTest
-  - 
+  - PostProcessing
   - 
   - 
   - 
