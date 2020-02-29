@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 5774580564994464262}
   - component: {fileID: 7528409361723443733}
   m_Layer: 12
-  m_Name: Play (1)
-  m_TagString: StartButton
+  m_Name: Back
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 7786543522333926822}
   m_Layer: 12
   m_Name: Play
-  m_TagString: StartButton
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,8 +543,8 @@ GameObject:
   - component: {fileID: 4090935549344700496}
   - component: {fileID: 7668284396218968366}
   m_Layer: 12
-  m_Name: Play (2)
-  m_TagString: StartButton
+  m_Name: Next
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

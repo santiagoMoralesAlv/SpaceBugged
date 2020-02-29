@@ -10,6 +10,7 @@ public enum platform {
 
 public class HeadsetReference : MonoBehaviour
 {
+    
     [SerializeField]
     private Transform[] headsetTf;
 
@@ -34,7 +35,7 @@ public class HeadsetReference : MonoBehaviour
     {
         if (instance != null && instance != this) //posible bug
         {
-            Destroy(instance.gameObject);
+            Destroy(this.gameObject);
         }
         instance = this;
     }

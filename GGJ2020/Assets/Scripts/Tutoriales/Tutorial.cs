@@ -22,7 +22,9 @@ public abstract class Tutorial : MonoBehaviour
         {
             if (!isComplete) { 
                 isComplete = true;
+                if(e_completeTutorial!= null) {
                 e_completeTutorial(true);
+                }
             }
         }
     }

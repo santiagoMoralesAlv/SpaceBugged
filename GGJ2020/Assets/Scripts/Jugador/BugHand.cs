@@ -26,7 +26,7 @@ public class BugHand : MonoBehaviour
 
         vrtkGrab.ControllerGrabInteractableObject += GrabTool;
         vrtkGrab.ControllerUngrabInteractableObject += ReleaseTool;
-        
+
         vrtkUse.ControllerUseInteractableObject += UseTool;
         vrtkUse.ControllerUnuseInteractableObject += UnUseTool;
 
@@ -42,7 +42,8 @@ public class BugHand : MonoBehaviour
         vrtkPointer. += UnUseTool;*/
     }
 
-    private void GrabTool(object sender, ObjectInteractEventArgs t_grab) {
+    private void GrabTool(object sender, ObjectInteractEventArgs t_grab)
+    {
         if (t_grab.target.gameObject.CompareTag("Herramienta"))
         {
             tool = t_grab.target.GetComponent<Tool>();
@@ -61,18 +62,19 @@ public class BugHand : MonoBehaviour
 
     private void UseTool(object sender, ObjectInteractEventArgs t_Use)
     {
-        if (t_Use.target.GetComponent<Tool>() == tool)
+        if (t_Use.target.CompareTag("Button"))
+        {
+            t_Use.target.GetComponent<ActiveButton>().Use();
+        }
+        else if(t_Use.target.GetComponent<Tool>() != null && t_Use.target.GetComponent<Tool>() == tool)
         {
             if (tool != null)
             {
                 if (tool is ActiveTool)
-            {
-                (tool as ActiveTool).Use();
+                {
+                    (tool as ActiveTool).Use();
+                }
             }
-        }
-        }else if (t_Use.target.CompareTag("Button"))
-        {
-            t_Use.target.GetComponent<ActiveButton>().Use();
         }
     }
     private void UnUseTool(object sender, ObjectInteractEventArgs t_Use)
@@ -88,7 +90,8 @@ public class BugHand : MonoBehaviour
 
     private void NearTouch(object sender, ObjectInteractEventArgs t_Use)
     {
-        if (t_Use.target.CompareTag("Test")) {
+        if (t_Use.target.CompareTag("Test"))
+        {
             t_Use.target.GetComponent<Test>().Show(true);
         }
     }
@@ -99,5 +102,5 @@ public class BugHand : MonoBehaviour
             t_Use.target.GetComponent<Test>().Show(false);
         }
     }
-        
+
 }
