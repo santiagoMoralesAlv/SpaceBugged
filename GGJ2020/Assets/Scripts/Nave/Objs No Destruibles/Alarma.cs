@@ -7,7 +7,7 @@ public class Alarma : MonoBehaviour
     private Animator m_animator;
     private AudioSource audioSource;
 
-    new private void Awake()
+    private void Awake()
     {
         ControlGame.Instance.e_enterDangerZone += EnterDanger;
         ControlGame.Instance.e_exitDangerZone += ExitDanger;

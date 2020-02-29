@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6144880230235432272
+--- !u!1 &7613889401344907309
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6144880230235432273}
-  - component: {fileID: 6144880230235432275}
-  - component: {fileID: 6144880230235432274}
+  - component: {fileID: 7613889401344907308}
+  - component: {fileID: 7613889401344907310}
+  - component: {fileID: 7613889401344907311}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -18,27 +18,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6144880230235432273
+--- !u!4 &7613889401344907308
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6144880230235432272}
+  m_GameObject: {fileID: 7613889401344907309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6440598437825729295}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &6144880230235432275
+--- !u!82 &7613889401344907310
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6144880230235432272}
+  m_GameObject: {fileID: 7613889401344907309}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -128,13 +128,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6144880230235432274
+--- !u!114 &7613889401344907311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6144880230235432272}
+  m_GameObject: {fileID: 7613889401344907309}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 004c7da6219cf3046ad34f96200d1160, type: 3}
@@ -144,83 +144,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7eb26683071b38041ae15859a0805628, type: 3}
   - {fileID: 8300000, guid: 5b4420cbdcf22df4b87dd7f44f5be8b6, type: 3}
   - {fileID: 8300000, guid: 810479c9e6c2f9542832260c5f07c43c, type: 3}
---- !u!1 &6440598437825729293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6440598437825729295}
-  - component: {fileID: 6440598437825729294}
-  - component: {fileID: 1641643782}
-  m_Layer: 0
-  m_Name: CoreGame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6440598437825729295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6440598437825729293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6144880230235432273}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6440598437825729294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6440598437825729293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb1cdf8aa20c34f4c81bd463ba8f2798, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGame: 0
-  inDangerZone: 0
-  difficulty: 0
-  gameTime: 0
-  level: 0
-  distance: 0
-  distanceMin: 0
-  dangerDistance: 0.1
-  m_ship: {fileID: 0}
-  m_enemy: {fileID: 0}
---- !u!114 &1641643782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6440598437825729293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5d0ab64e11eac4fab75d94d8725026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreControlGame: 0
-  meteoros:
-  - {fileID: 3188088517573424192, guid: f1ad86fd6a0a02b47a413417e32e28f3, type: 3}
-  - {fileID: 8002912179012293776, guid: 34993da74ecaca94191797f2a151b160, type: 3}
-  - {fileID: 6012844967136300305, guid: ed0439edb811ee54083b93bb536faa0e, type: 3}
-  esferaEnergia: {fileID: 4390370789689761538, guid: 91e01a00a92f91245827ffb02a1d7038,
-    type: 3}
-  intervalo: 0
-  generationRateMin: 2
-  generationRateMax: 2.5
-  instantiateFrontDistance: 60
-  instantiateSideDistance: 40
-  instantiateTopDistance: 7
