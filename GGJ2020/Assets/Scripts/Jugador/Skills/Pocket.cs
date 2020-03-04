@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.UI;
 
 public class Pocket : MonoBehaviour
 {
+    [SerializeField]
+    private Sprite sprPocket, sprTermofanton, sprBaseTermoFanton, sprCautin, sprHolograma, sprLaser, sprMartillo, sprMascara, sprTarroDeAgua;
+
+    [SerializeField]
+    private Image imgPocket;
+
     [SerializeField]
     private GameObject toolIn, toolGrabbed;
     [SerializeField]
@@ -69,6 +76,8 @@ public class Pocket : MonoBehaviour
             toolIn.SetActive(false);
             toolIn.transform.SetParent(tf);
             toolIn.transform.localPosition = Vector3.zero;
+
+            UpdateSprite();
         }
     }
 
@@ -78,10 +87,45 @@ public class Pocket : MonoBehaviour
 
         toolToBringOut.SetActive(true);
         toolToBringOut.transform.SetParent(Ship.Instance.GoHerramientas);
+
+
+        UpdateSprite();
     }
 
     private void UpdateSprite()
     {
+        if(toolIn != null) { 
+        toolType tType = toolIn.GetComponent<Tool>().Type;
 
+        switch (tType)
+        {
+            case toolType.Termofanton:
+                imgPocket.sprite = sprTermofanton;
+                break;
+            case toolType.BaseTermoFanton:
+                break;
+            case toolType.Cautin:
+                imgPocket.sprite = sprCautin;
+                break;
+            case toolType.Holograma:
+                imgPocket.sprite = sprHolograma;
+                break;
+            case toolType.Laser:
+                imgPocket.sprite = sprLaser;
+                break;
+            case toolType.Martillo:
+                imgPocket.sprite = sprMartillo;
+                break;
+            case toolType.Mascara:
+                imgPocket.sprite = sprMascara;
+                break;
+            case toolType.TarroDeAgua:
+                imgPocket.sprite = sprTarroDeAgua;
+                break;
+        }
+        }else
+        {
+            imgPocket.sprite = sprPocket;
+        }
     }
 }

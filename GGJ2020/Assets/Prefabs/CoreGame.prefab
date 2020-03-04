@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6144880230235432273}
-  - component: {fileID: 6144880230235432275}
   - component: {fileID: 6144880230235432274}
+  - component: {fileID: 6144880230235432275}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -32,6 +32,22 @@ Transform:
   m_Father: {fileID: 6440598437825729295}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6144880230235432274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144880230235432272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 004c7da6219cf3046ad34f96200d1160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songs:
+  - {fileID: 8300000, guid: 7eb26683071b38041ae15859a0805628, type: 3}
+  - {fileID: 8300000, guid: 5b4420cbdcf22df4b87dd7f44f5be8b6, type: 3}
+  - {fileID: 8300000, guid: cc4202120a7cb5c43804b3dcd283f1fe, type: 3}
 --- !u!82 &6144880230235432275
 AudioSource:
   m_ObjectHideFlags: 0
@@ -128,22 +144,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6144880230235432274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6144880230235432272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 004c7da6219cf3046ad34f96200d1160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  songs:
-  - {fileID: 8300000, guid: 7eb26683071b38041ae15859a0805628, type: 3}
-  - {fileID: 8300000, guid: 5b4420cbdcf22df4b87dd7f44f5be8b6, type: 3}
-  - {fileID: 8300000, guid: cc4202120a7cb5c43804b3dcd283f1fe, type: 3}
 --- !u!1 &6440598437825729293
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,8 @@ public class TermoFanton : ActiveTool
         //Debug.DrawRay(ray.origin, ray.direction*distanceRay, Color.cyan, 10);
     }
 
+    
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("FuenteEnergia"))

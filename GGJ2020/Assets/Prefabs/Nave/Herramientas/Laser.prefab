@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7874150889939531874
 Transform:
   m_ObjectHideFlags: 0
@@ -208,12 +208,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3679206073868813267}
+  - component: {fileID: 7413452409396448456}
   - component: {fileID: 5531778334937489429}
   - component: {fileID: 1378052915922875398}
   - component: {fileID: 7894107665807543627}
   - component: {fileID: 5157351683348564982}
   - component: {fileID: 8962350360221705162}
-  - component: {fileID: 7413452409396448456}
   - component: {fileID: 202525771}
   - component: {fileID: 8267917369451183170}
   - component: {fileID: 9211788091676517467}
@@ -240,6 +240,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7413452409396448456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740400619412538112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90f78e3f4fa6c247aac2d6624e37742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  distanceRay: 100
+  radius: 0.5
+  aim: {fileID: 3876907717111385805}
+  pointA: {fileID: 5734960759822161284}
+  pointB: {fileID: 6777232207050977167}
 --- !u!54 &5531778334937489429
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,7 +291,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -335,23 +353,6 @@ CapsuleCollider:
   m_Height: 0.6
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7413452409396448456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8740400619412538112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90f78e3f4fa6c247aac2d6624e37742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceRay: 100
-  radius: 0.5
-  aim: {fileID: 3876907717111385805}
-  pointA: {fileID: 5734960759822161284}
-  pointB: {fileID: 6777232207050977167}
 --- !u!65 &202525771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3a4baf251c1814716b9458d036384a76, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a8c0a99db40fa364e8d45b2228fee569, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

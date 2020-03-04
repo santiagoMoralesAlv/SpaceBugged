@@ -32,7 +32,7 @@ public class InverseGravity : MonoBehaviour
             {
                 if (Vector3.Distance(this.transform.position, tool.transform.position) > distance)
                 {
-                    tool.GetComponent<Rigidbody>().AddForce((-tool.transform.position + this.transform.position).normalized * gravityForce, ForceMode.Impulse);
+                    tool.GetComponent<Rigidbody>().AddForce((-tool.transform.position + this.transform.position) * gravityForce, ForceMode.Impulse);
                     result = true;
                 }
             }

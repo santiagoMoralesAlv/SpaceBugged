@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillControl : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class SkillControl : MonoBehaviour
 
 
     [SerializeField]
-    private VRTK.VRTK_Pointer pointerB;
+    private VRTK.VRTK_Pointer pointer;
 
     [SerializeField]
     private GameObject playerHub, radar; //A = izq, B = Der
@@ -49,6 +50,12 @@ public class SkillControl : MonoBehaviour
     public Pocket Pocket2B { get => pocket2B; }
 
 
+    [SerializeField]
+    private Image imgGravity, imgPointer, imgRadar, imgPlayerHub, imgPocketAizq, imgPocketBizq, imgPocketAder, imgPocketBder;
+
+    [SerializeField]
+    private Sprite sprSkillInAction, sprGravity, sprPointer, sprRadar, sprPlayerHub, sprPocket;
+
     private void Awake()
     {
         timeToUpgradeLevel = 20;
@@ -59,7 +66,7 @@ public class SkillControl : MonoBehaviour
         if (ControlGame.Instance.InGame)
         {
             timeToUpgradeLevel += Time.deltaTime;
-            if (timeToUpgradeLevel >= 20)
+            if (timeToUpgradeLevel >= 1)
             {
                 UpgradeLevel();
                 timeToUpgradeLevel = 0;
@@ -72,12 +79,29 @@ public class SkillControl : MonoBehaviour
         if (levelPlayer < 5)
         {
             levelPlayer++;
-        }
 
-        if (levelPlayer == 3)
-        {
-            canLaunchGravity = true;
-            pointerB.enabled = true;
+            switch (levelPlayer)
+            {
+                case 1:
+                    break;
+                case 2:
+                    imgPlayerHub.sprite = sprPlayerHub;
+                    imgRadar.sprite = sprRadar;
+                    break;
+                case 3: //Gravity
+                    canLaunchGravity = true;
+
+                    imgGravity.sprite = sprGravity;
+                    break;
+                case 4: // Pocket A
+                    imgPocketAizq.sprite = sprPocket;
+                    imgPocketAder.sprite = sprPocket;
+                    break;
+                case 5: // Pocket B
+                    imgPocketBizq.sprite = sprPocket;
+                    imgPocketBder.sprite = sprPocket;
+                    break;
+            }
         }
     }
 
@@ -86,6 +110,8 @@ public class SkillControl : MonoBehaviour
         {
             showingPlayerHub = value;
             playerHub.SetActive(value);
+            
+            imgPlayerHub.sprite = value ? sprSkillInAction : sprPlayerHub;
         }
     }
     public void ShowRadar(bool value)
@@ -94,6 +120,8 @@ public class SkillControl : MonoBehaviour
         {
             showingRadar = value;
             radar.SetActive(value);
+            
+            imgRadar.sprite = value ? sprSkillInAction : sprRadar;
         }
     }
 

@@ -14,6 +14,10 @@ public class ToolLineRenderer : ToolSFX
         {
             line = this.GetComponent<LineRenderer>();
         }
+
+
+
+        tool.e_InUse += UpdateSFX;
     }
 
     override protected void UpdateSFX(bool value)
