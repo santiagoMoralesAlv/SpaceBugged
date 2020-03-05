@@ -9,27 +9,28 @@ public class tut_Skills : Tutorial
     [SerializeField]
     private VRTK_DashTeleport teleportSkill;
 
-    private bool gravityExecuted, teleported;
+    private bool gravityExecuted, toolsInPockets, HUBshowed;
 
     [SerializeField]
-    private Image imgGravityExecuted, imgTeleported;
+    private Image imgGravityExecuted, imgTools, imgHUB;
 
     private void Awake()
     {
-        teleportSkill.Teleported += Teleported;
+        //teleportSkill.Teleported += Teleported;
         Ship.Instance.SkillControl.GravitySkill.e_Execute += GravityExecute;
     }
 
     private void Update()
     {
-
         CheckStatus();
         UpdateGUI();
     }
 
     override protected bool CheckIsComplete()
     {
-        bool result = (gravityExecuted && teleported && CheckPockets() && CheckHubAndRadar());
+        toolsInPockets = CheckPockets();
+        HUBshowed = CheckHubAndRadar();
+        bool result = (gravityExecuted && toolsInPockets && HUBshowed);
 
         return result;
     }
@@ -38,11 +39,11 @@ public class tut_Skills : Tutorial
     {
         gravityExecuted = true;
     }
-
+    /*
     public void Teleported(object sender, DestinationMarkerEventArgs e) {
         teleported = true;
     }
-
+    */
     public bool CheckPockets()
     {
         bool result = (Ship.Instance.SkillControl.Pocket1A.HasToolIn()&& Ship.Instance.SkillControl.Pocket2A.HasToolIn() && Ship.Instance.SkillControl.Pocket1B.HasToolIn() && Ship.Instance.SkillControl.Pocket2B.HasToolIn());
@@ -60,6 +61,7 @@ public class tut_Skills : Tutorial
     override protected void UpdateGUI()
     {
         imgGravityExecuted.enabled = gravityExecuted;
-        imgTeleported.enabled = teleported;
+        imgTools.enabled = toolsInPockets;
+        imgHUB.enabled = HUBshowed;
     }
 }

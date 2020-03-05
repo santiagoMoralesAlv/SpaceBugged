@@ -375,7 +375,7 @@ public class SteamVR_RenderModel : MonoBehaviour
 
 		// Check cache before loading texture.
 		var material = materials[renderModel.diffuseTextureId] as Material;
-		if (material == null || material.mainTexture == null)
+		if (material == null)
 		{
 			var pDiffuseTexture = System.IntPtr.Zero;
 
