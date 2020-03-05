@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tut_BasicRules : Tutorial
 {
-    [SerializeField]
     private float time;
     [SerializeField]
     private float timeToWin;
-    
-    [SerializeField]
     private bool survived;
 
+
+    [SerializeField]
+    private Text txtTime, txtTimeToWin;
+    [SerializeField]
+    private Image imgTimeToWin;
+
+    #region properties
     public float CurrentTime { get => time; set => time = value; }
     public float TimeToWin { get => timeToWin; set => timeToWin = value; }
     public bool Survived { get => survived; set => survived = value; }
+    #endregion
 
     private void Awake()
     {
         Ship.Instance.e_GotDamage += LoseTutorial;
+
+        txtTimeToWin.text = "Tiempo mínimo: " + timeToWin;
     }
 
     private void Update()
@@ -26,8 +34,9 @@ public class tut_BasicRules : Tutorial
         if (!survived)
         {
             CheckTime();
+            UpdateGUI();
         }
-        CheckStatus();
+        CheckStatus(); 
     }
 
     override protected bool CheckIsComplete()
@@ -41,6 +50,7 @@ public class tut_BasicRules : Tutorial
 
         if (time > timeToWin)
         {
+            time = timeToWin;
             if (e_completeStep != null)
             {
                 e_completeStep();
@@ -54,4 +64,10 @@ public class tut_BasicRules : Tutorial
         SceneControl.Instance.StartTutorial(NumTutorial);
     }
 
+    override protected void UpdateGUI()
+    {
+        txtTime.text = "Tiempo actual: " + (int)time;
+
+        imgTimeToWin.rectTransform.localScale = new Vector3(time/timeToWin, 1f, 1f);
+    }
 }

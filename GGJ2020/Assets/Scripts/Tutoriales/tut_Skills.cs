@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.UI;
 
 public class tut_Skills : Tutorial
 {
@@ -9,6 +10,9 @@ public class tut_Skills : Tutorial
     private VRTK_DashTeleport teleportSkill;
 
     private bool gravityExecuted, teleported;
+
+    [SerializeField]
+    private Image imgGravityExecuted, imgTeleported;
 
     private void Awake()
     {
@@ -20,6 +24,7 @@ public class tut_Skills : Tutorial
     {
 
         CheckStatus();
+        UpdateGUI();
     }
 
     override protected bool CheckIsComplete()
@@ -51,6 +56,10 @@ public class tut_Skills : Tutorial
 
         return result;
     }
-
     
+    override protected void UpdateGUI()
+    {
+        imgGravityExecuted.enabled = gravityExecuted;
+        imgTeleported.enabled = teleported;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tut_Tools : Tutorial
 {
@@ -9,8 +10,11 @@ public class tut_Tools : Tutorial
     [SerializeField]
     private Tool pasiveTool;
 
-    [SerializeField]
     private bool activeToolComplete, pasiveToolComplete;
+
+
+    [SerializeField]
+    private Image imgPasiveComplete, imgActiveComplete;
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class tut_Tools : Tutorial
             pasiveToolComplete = true;
         }
     }
+
     public void CheckActiveTool(bool value)
     {
         if (value)
@@ -49,5 +54,11 @@ public class tut_Tools : Tutorial
             }
             activeToolComplete = true;
         }
+    }
+
+    override protected void UpdateGUI()
+    {
+        imgPasiveComplete.enabled = pasiveToolComplete;
+        imgActiveComplete.enabled = activeToolComplete;
     }
 }

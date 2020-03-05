@@ -7,7 +7,6 @@ public abstract class Tutorial : MonoBehaviour
 {
     [SerializeField]
     private int numTutorial;
-    [SerializeField]
     private bool isComplete;
     public delegate void UpdateState(bool state);
     public UpdateState e_completeTutorial;
@@ -30,4 +29,6 @@ public abstract class Tutorial : MonoBehaviour
     }
 
     abstract protected bool CheckIsComplete();
+
+    abstract protected void UpdateGUI();
 }

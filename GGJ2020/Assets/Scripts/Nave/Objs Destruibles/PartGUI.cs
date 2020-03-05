@@ -9,6 +9,7 @@ public class PartGUI : MonoBehaviour
     [SerializeField]
     private Image imgPart;
 
+    [SerializeField]
     private DestroyablePart part;
 
     private void Update()
