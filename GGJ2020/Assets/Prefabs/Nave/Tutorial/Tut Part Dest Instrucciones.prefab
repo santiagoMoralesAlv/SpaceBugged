@@ -100,15 +100,12 @@ PrefabInstance:
     - target: {fileID: 6551327730410317877, guid: 0dad2dd42b583c846a1bc34eb3d598c6,
         type: 3}
       propertyPath: m_Text
-      value: Limpia el vidrio.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3881094084716163984, guid: 0dad2dd42b583c846a1bc34eb3d598c6,
         type: 3}
       propertyPath: m_Text
-      value: "El vidrio se ha ensuciado, rep\xE1ralo para poder observar el espacio.\r\nPara
-        repararlo debes usar el L\xE1ser para encontrar las pruebas de habilidad,
-        luego debes usar el tarro de agua sobre esta para limpiar efectivamente el
-        vidrio.\r"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dad2dd42b583c846a1bc34eb3d598c6, type: 3}

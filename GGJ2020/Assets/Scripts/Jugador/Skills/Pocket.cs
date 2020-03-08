@@ -17,6 +17,7 @@ public class Pocket : MonoBehaviour
     [SerializeField]
     private Transform tf;
 
+    [SerializeField]
     private bool inGrab;
 
     [SerializeField]
@@ -25,6 +26,7 @@ public class Pocket : MonoBehaviour
     private void Awake()
     {
         tf = this.transform;
+        this.gameObject.SetActive(false);
 
         vrtkGrab.ControllerGrabInteractableObject += GrabTool;
         vrtkGrab.ControllerUngrabInteractableObject += ReleaseTool;

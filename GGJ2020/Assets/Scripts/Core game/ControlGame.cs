@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class ControlGame : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class ControlGame : MonoBehaviour
     }
     #endregion
 
+    #region playable
+    private PlayableDirector director;
+    #endregion
 
     #region variables
     [SerializeField]
@@ -95,6 +99,8 @@ public class ControlGame : MonoBehaviour
         UpdateDifficulty();
         UpdateLevel();
 
+        director = this.GetComponent<PlayableDirector>();
+
     }
 
     private void Start()
@@ -118,9 +124,11 @@ public class ControlGame : MonoBehaviour
     public void LoseGame()
     {
         inGame = false;
+        director.Play();
         StartCoroutine("ReturnToMenu");
     }
 
+    
     IEnumerator ReturnToMenu()
     {
         yield return new WaitForSeconds(15f);
@@ -174,7 +182,6 @@ public class ControlGame : MonoBehaviour
                 if (e_enterDangerZone != null)
                 {
                     e_enterDangerZone();
-                    Debug.Log("zona peligro");
                 }
 
             }

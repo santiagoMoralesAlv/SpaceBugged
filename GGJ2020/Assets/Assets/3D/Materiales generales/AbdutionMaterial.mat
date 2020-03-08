@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserReactivo
+  m_Name: AbdutionMaterial
   m_Shader: {fileID: -6465566751694194690, guid: fab95713ab6b1b84fac1e78bc5f84676,
     type: 3}
   m_ShaderKeywords: 
@@ -49,12 +49,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_288728C4: 1
-    - Vector1_28E0AF3: 0.92
-    - Vector1_2CB6FF75: 0.94
-    - Vector1_6C78031C: 0.381
-    - Vector1_7C6D4A6: 0.654
-    - Vector1_C8E7271C: 0.765
+    - Vector1_28E0AF3: 1
+    - Vector1_2CB6FF75: 0.4
+    - Vector1_6C78031C: 0.47
+    - Vector1_7C6D4A6: 0.246
+    - Vector1_C8E7271C: 0.296
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -77,16 +76,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_6BE50C58: {r: 0, g: 1, b: 0.66694856, a: 0.3490196}
-    - Color_7D02CD2A: {r: 0, g: 1, b: 0.9301295, a: 0}
-    - Color_C167BD86: {r: 0.15966538, g: 0.8679245, b: 0.860452, a: 0}
+    - Color_6BE50C58: {r: 0, g: 0.7259564, b: 0.8490566, a: 0.3490196}
+    - Color_7D02CD2A: {r: 0.8773585, g: 0.024045069, b: 0, a: 0}
+    - Color_C167BD86: {r: 1, g: 0.09648234, b: 0.05098039, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _ColorA: {r: 0.02868128, g: 1, b: 0, a: 0}
-    - _ColorB: {r: 0.8773585, g: 0.053800277, b: 0.053800277, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &4485372658370760961
+--- !u!114 &5346299329439206771
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

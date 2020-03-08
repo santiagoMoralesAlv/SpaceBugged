@@ -25,6 +25,7 @@ public class tut_Tools : Tutorial
     private void Update()
     {
         CheckStatus();
+        UpdateGUI();
     }
 
     override protected bool CheckIsComplete()

@@ -63,22 +63,26 @@ public class tut_SpecificTool : Tutorial
         switch (part)
         {
             case DestroyablePart.Motor:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.MotorHealth / 1, 1f, 1f);
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.MotorHealth / 1f, 1f, 1f);
                 break;
             case DestroyablePart.FuenteEnergia:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.Gas / 1, 1f, 1f);
+                Debug.Log("4");
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.Gas / 1f, 1f, 1f);
+                Debug.Log(imgPart.rectTransform.localScale + " | " + Ship.Instance.Gas);
                 break;
             case DestroyablePart.Cable1:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[0] / 1, 1f, 1f);
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[0] / 1f, 1f, 1f);
                 break;
             case DestroyablePart.Cable2:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[1] / 1, 1f, 1f);
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[1] / 1f, 1f, 1f);
                 break;
             case DestroyablePart.Cable3:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[2] / 1, 1f, 1f);
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.CablesHealth[2] / 1f, 1f, 1f);
                 break;
             case DestroyablePart.Vidrio:
-                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.GlassClarity / 1, 1f, 1f);
+                Debug.Log("4");
+                imgPart.rectTransform.localScale = new Vector3(Ship.Instance.GlassClarity / 1f, 1f, 1f);
+                Debug.Log(imgPart.rectTransform.localScale + " | " + Ship.Instance.GlassClarity);
                 break;
         }
     }

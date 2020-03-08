@@ -66,7 +66,7 @@ public class SkillControl : MonoBehaviour
         if (ControlGame.Instance.InGame)
         {
             timeToUpgradeLevel += Time.deltaTime;
-            if (timeToUpgradeLevel >= 1)
+            if (timeToUpgradeLevel >= 30)
             {
                 UpgradeLevel();
                 timeToUpgradeLevel = 0;

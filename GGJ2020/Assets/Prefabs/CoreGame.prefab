@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 1641643782}
   - component: {fileID: 541546739}
   - component: {fileID: 4715428597601919102}
+  - component: {fileID: 2076321267091513420}
   m_Layer: 0
   m_Name: CoreGame
   m_TagString: Untagged
@@ -254,6 +255,28 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!320 &2076321267091513420
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440598437825729293}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: ea3ebc5f904bfb84eaa23890d81c4b4b, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -3522015903041593181, guid: ea3ebc5f904bfb84eaa23890d81c4b4b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3354147781220128057, guid: ea3ebc5f904bfb84eaa23890d81c4b4b, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References:
+    - 0923258b304894e4eb2f56b9dcf8e278: {fileID: 6440598437825729293}
 --- !u!1 &7210436061374043946
 GameObject:
   m_ObjectHideFlags: 0

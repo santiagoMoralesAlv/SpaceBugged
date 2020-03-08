@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Vidrio_alarma
-  m_Shader: {fileID: -6465566751694194690, guid: 8cf8b14608914d1439c9ed521ea8597b,
+  m_Shader: {fileID: -6465566751694194690, guid: fab95713ab6b1b84fac1e78bc5f84676,
     type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -80,8 +80,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_28E0AF3: 0.74
+    - Vector1_2CB6FF75: 0.93
+    - Vector1_6C78031C: 0.406
     - Vector1_7C6D4A6: 1
     - Vector1_9E5AB8C0: 0.4
+    - Vector1_C8E7271C: 1
     - _AlphaClip: 0
     - _Blend: 1
     - _BumpScale: 1
@@ -109,6 +112,8 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - Color_6BE50C58: {r: 1, g: 0.07898478, b: 0, a: 1}
+    - Color_7D02CD2A: {r: 1, g: 0.28152826, b: 0, a: 1}
+    - Color_C167BD86: {r: 1, g: 0.56433904, b: 0, a: 0}
     - _BaseColor: {r: 0, g: 0.57254905, b: 1, a: 0.21568628}
     - _Color: {r: 0, g: 0.57254905, b: 1, a: 0.21568628}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
