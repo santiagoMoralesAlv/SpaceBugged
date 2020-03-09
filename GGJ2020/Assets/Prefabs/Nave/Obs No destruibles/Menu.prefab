@@ -237,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8865614347251628585}
   - component: {fileID: 8550331757300756201}
+  - component: {fileID: 5947145402403584409}
   m_Layer: 0
   m_Name: Fuente energia
   m_TagString: Untagged
@@ -273,6 +274,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992673897817023647}
   m_CullTransparentMesh: 0
+--- !u!114 &5947145402403584409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992673897817023647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 5092045187990356061}
+  part: 1
 --- !u!1 &1019581375492916369
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +906,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6602774795031577963}
   - component: {fileID: 2949140904482078691}
+  - component: {fileID: 1526093003959747655}
   m_Layer: 0
   m_Name: Motor
   m_TagString: Untagged
@@ -927,6 +943,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2426927955273531496}
   m_CullTransparentMesh: 0
+--- !u!114 &1526093003959747655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426927955273531496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 696093216078931512}
+  part: 0
 --- !u!1 &2782252464201657363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5634401943162933873}
   - component: {fileID: 4121863488744072312}
+  - component: {fileID: 294994706528642434}
   m_Layer: 0
   m_Name: Cable trasero
   m_TagString: Untagged
@@ -2218,6 +2249,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5868002560799280210}
   m_CullTransparentMesh: 0
+--- !u!114 &294994706528642434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868002560799280210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 3092088513285579703}
+  part: 3
 --- !u!1 &5871496835553222702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,6 +2273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314003051208061639}
   - component: {fileID: 3757679450428218918}
+  - component: {fileID: 3196334110415479366}
   m_Layer: 0
   m_Name: Cable der
   m_TagString: Untagged
@@ -2264,6 +2310,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5871496835553222702}
   m_CullTransparentMesh: 0
+--- !u!114 &3196334110415479366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871496835553222702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 2778441268372945222}
+  part: 4
 --- !u!1 &6340051748997583228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508527171717106344}
   - component: {fileID: 8344394810366370646}
+  - component: {fileID: 2962253150714215680}
   m_Layer: 0
   m_Name: Cable izq
   m_TagString: Untagged
@@ -2383,6 +2444,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6665852253173008673}
   m_CullTransparentMesh: 0
+--- !u!114 &2962253150714215680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665852253173008673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 2430088519548322626}
+  part: 2
 --- !u!1 &6920262830779867351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,6 +2897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3082807216482881952}
   - component: {fileID: 6416552260531908280}
+  - component: {fileID: 731311467752310296}
   m_Layer: 0
   m_Name: Vidrio
   m_TagString: Untagged
@@ -2858,6 +2934,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7429337945859445209}
   m_CullTransparentMesh: 0
+--- !u!114 &731311467752310296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7429337945859445209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d0a4ec562135241b34680a26350f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgPart: {fileID: 4667199738720012616}
+  part: 5
 --- !u!1 &8340229407138860088
 GameObject:
   m_ObjectHideFlags: 0
