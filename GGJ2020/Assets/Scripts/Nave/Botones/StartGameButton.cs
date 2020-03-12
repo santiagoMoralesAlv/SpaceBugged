@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class StartGameButton : ActiveButton
 {
-    override public void Use()
+    override protected void Activation()
     {
-        base.Use();
         if (!ControlGame.Instance.InGame) { 
             SceneControl.Instance.StartGame();
         }

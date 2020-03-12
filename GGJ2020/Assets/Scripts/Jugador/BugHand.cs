@@ -62,11 +62,7 @@ public class BugHand : MonoBehaviour
 
     private void UseTool(object sender, ObjectInteractEventArgs t_Use)
     {
-        if (t_Use.target.CompareTag("Button"))
-        {
-            t_Use.target.GetComponent<ActiveButton>().Use();
-        }
-        else if(t_Use.target.GetComponent<Tool>() != null && t_Use.target.GetComponent<Tool>() == tool)
+        if(t_Use.target.GetComponent<Tool>() != null && t_Use.target.GetComponent<Tool>() == tool)
         {
             if (tool != null)
             {

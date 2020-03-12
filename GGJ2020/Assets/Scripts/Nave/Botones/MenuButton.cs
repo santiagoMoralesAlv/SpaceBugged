@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MenuButton : ActiveButton
 {
-    override public void Use()
+    override protected void Activation()
     {
-        base.Use();
         SceneControl.Instance.StartMenu();
     }
 

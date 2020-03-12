@@ -2,35 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using VRTK.Controllables;
+using VRTK.Controllables.ArtificialBased;
 
-public class ActiveButton : MonoBehaviour
+public abstract class ActiveButton : MonoBehaviour
 {
     public Tool.UpdateState e_UpdateState;
 
     protected bool inUse;
 
-    virtual public void Use()
+    [SerializeField]
+    private VRTK_ArtificialRotator vrtkRotator;
+
+    private void Awake()
     {
-        inUse = true;
-        Notify();
+        vrtkRotator.ValueChanged += CheckActivation;
     }
 
-    virtual public void UnUse()
-    {
-        inUse = false;
-        Notify();
+    protected void CheckActivation(object sender, ControllableEventArgs e) {
+        if (vrtkRotator.GetValue() == 1) Activation();
     }
 
-    protected void Notify()
-    {
-
-        try
-        {
-            e_UpdateState(inUse);
-        }
-        catch
-        {
-        }
-    }
+    abstract protected void Activation();
 
 }

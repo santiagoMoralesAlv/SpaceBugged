@@ -30,26 +30,32 @@ public class SceneControl : MonoBehaviour
     {
         switch (i)
         {
+            case -1:
+                StartMenu();
+                break;
             case 0: //movimiento de nave y mecanicas de juego generales 
                 SceneManager.LoadScene("tut_BasicRules");
                 break;
-            case 1: // Herramientas y Gravedad invertida
-                SceneManager.LoadScene("tut_Tools");
-                break;
-            case 2: //skills basicas
+            case 1: //skills basicas
                 SceneManager.LoadScene("tut_Skills");
                 break;
-            case 3: // Martillo
+            case 2: // Martillo
                 SceneManager.LoadScene("tut_Martillo");
                 break;
-            case 4: // Termofanton
+            case 3: // Termofanton
                 SceneManager.LoadScene("tut_Termofanton");
                 break;
-            case 5: // Cautin
+            case 4: // Cautin
                 SceneManager.LoadScene("tut_Cautin");
                 break;
-            case 6: // Limpiavidrios
+            case 5: // Limpiavidrios
                 SceneManager.LoadScene("tut_Limpiavidrios");
+                break;
+            case 6: // Herramientas y Gravedad invertida
+                SceneManager.LoadScene("tut_Tools");
+                break;
+            case 7:
+                StartGame();
                 break;
         }
     }

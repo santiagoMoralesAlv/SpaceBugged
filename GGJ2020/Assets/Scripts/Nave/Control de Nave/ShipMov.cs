@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using VRTK.Controllables;
+using VRTK.Controllables.ArtificialBased;
 
 public class ShipMov : MonoBehaviour
 {
     private Transform tr;
-    [SerializeField]
-    private bool izquierda, derecha;
     [SerializeField]
     private float speed;
     [SerializeField]
     private float currentSpeed;
 
     [SerializeField]
-    private VRTK_InteractUse vrtkLeftButton, vrtkRightButton;
+    private VRTK_ArtificialRotator vrtkRotator;
 
     #region singleton
     private static ShipMov instance;
@@ -36,41 +36,15 @@ public class ShipMov : MonoBehaviour
         }
         instance = this;
 
-        vrtkLeftButton.ControllerUseInteractableObject += UseButton;
-        vrtkLeftButton.ControllerUnuseInteractableObject += UnUseButton;
-        vrtkRightButton.ControllerUseInteractableObject += UseButton;
-        vrtkRightButton.ControllerUnuseInteractableObject += UnUseButton;
+
+        vrtkRotator.ValueChanged += UpdateVelocity;
 
         ControlGame.Instance.e_loseGame += DestroyThis;
     }
 
     void Start()
     {
-        izquierda = false;
-        derecha = false;
         tr = GetComponent<Transform>();
-    }
-
-    private void UseButton(object sender, ObjectInteractEventArgs t_Use){
-        if (t_Use.target.gameObject.CompareTag("MovLeftButton"))
-        {
-            izquierda = true;
-        }
-        if (t_Use.target.gameObject.CompareTag("MovRightButton"))
-        {
-            derecha = true;
-        }
-    }
-    private void UnUseButton(object sender, ObjectInteractEventArgs t_Use)
-    {
-        if (t_Use.target.gameObject.CompareTag("MovLeftButton"))
-        {
-            izquierda = false;
-        }
-        if (t_Use.target.gameObject.CompareTag("MovRightButton"))
-        {
-            derecha = false;
-        }
     }
 
     public void DestroyThis()
@@ -78,13 +52,10 @@ public class ShipMov : MonoBehaviour
         Destroy(this);
     }
 
-    void Update()
+    private void UpdateVelocity(object sender, ControllableEventArgs e)
     {
-        currentSpeed = 0;
-        if (izquierda)
-            currentSpeed = -speed;
-        if (derecha)
-            currentSpeed += speed;
+        vrtkRotator.GetValue();
+        currentSpeed = vrtkRotator.GetValue()*speed;
 
         currentSpeed += currentSpeed*(0.7f+Ship.Instance.SkillControl.LevelPlayer);
         tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (-currentSpeed*Time.deltaTime));

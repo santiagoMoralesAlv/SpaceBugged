@@ -29,9 +29,8 @@ public class NextTutorialButton : ActiveButton
         }
     }
 
-    override public void Use()
+    override protected void Activation()
     {
-        base.Use();
         if (toBack) { 
             SceneControl.Instance.StartTutorial(tutorial.NumTutorial-1);
         }else

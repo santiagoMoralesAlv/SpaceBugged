@@ -62,28 +62,28 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 10.45
+    value: 4.86
   threshold:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.67
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 1
   clamp:
     overrideState: 0
     value: 65472
   diffusion:
     overrideState: 1
-    value: 6.89
+    value: 2.94
   anamorphicRatio:
     overrideState: 0
-    value: -0.014
+    value: 0
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
     overrideState: 0
-    value: 0
+    value: 1
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}
@@ -144,7 +144,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 55.5
+    value: -16
   tint:
     overrideState: 0
     value: 0
@@ -195,13 +195,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9723202, y: 1, z: 0.96054614, w: 0}
+    value: {x: 0.9718119, y: 0.9789, z: 1, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.939817, y: 1, z: 0.9840056, w: 0}
+    value: {x: 0.9545623, y: 1, z: 0.97548103, w: 0}
   gain:
     overrideState: 1
-    value: {x: 0.84297156, y: 1, z: 0.83967835, w: 0}
+    value: {x: 0.82226145, y: 0.9061101, z: 1, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1437,13 +1437,13 @@ MonoBehaviour:
     value: 1
   colored:
     overrideState: 0
-    value: 0
+    value: 1
   intensity:
     overrideState: 1
-    value: 0.14
+    value: 0.59
   size:
     overrideState: 1
-    value: 0.588
+    value: 0.3
   lumContrib:
-    overrideState: 0
-    value: 0.186
+    overrideState: 1
+    value: 1
