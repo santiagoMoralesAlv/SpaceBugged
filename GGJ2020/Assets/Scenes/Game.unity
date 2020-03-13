@@ -1149,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: 559754712, guid: a68bf6d0df64afb4abdcb8749485bb92, type: 3}
       propertyPath: vrtkRotator
       value: 
-      objectReference: {fileID: 202525775}
+      objectReference: {fileID: 0}
     - target: {fileID: 3894745443923133124, guid: a68bf6d0df64afb4abdcb8749485bb92,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1249,7 +1249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: hingePoint
       value: 
-      objectReference: {fileID: 1750728924}
+      objectReference: {fileID: 0}
     - target: {fileID: 2188318650440423203, guid: a68bf6d0df64afb4abdcb8749485bb92,
         type: 3}
       propertyPath: m_Enabled
@@ -1835,6 +1835,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: e33b3447d315bd64d9ef604956de3e17, type: 2}
+    - target: {fileID: 8391252048706705076, guid: a68bf6d0df64afb4abdcb8749485bb92,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15725713e0eb3d44fa2f36bc204d2c65, type: 2}
+    - target: {fileID: 2383572957806152505, guid: a68bf6d0df64afb4abdcb8749485bb92,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15725713e0eb3d44fa2f36bc204d2c65, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68bf6d0df64afb4abdcb8749485bb92, type: 3}
 --- !u!114 &202525767 stripped
@@ -1957,18 +1967,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &202525775 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 343595959084072863, guid: a68bf6d0df64afb4abdcb8749485bb92,
-    type: 3}
-  m_PrefabInstance: {fileID: 202525766}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7530eeaa128faef459301a47f43f38ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &568455326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2188,12 +2186,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1750728924 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5566997280214151271, guid: a68bf6d0df64afb4abdcb8749485bb92,
-    type: 3}
-  m_PrefabInstance: {fileID: 202525766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1858261308
 PrefabInstance:
   m_ObjectHideFlags: 0
