@@ -100,7 +100,6 @@ public class ControlGame : MonoBehaviour
         UpdateLevel();
 
         director = this.GetComponent<PlayableDirector>();
-
     }
 
     private void Start()

@@ -7,6 +7,7 @@ using VRTK.Controllables.ArtificialBased;
 
 public class ShipMov : MonoBehaviour
 {
+    private Animator animator;
     private Transform tr;
     [SerializeField]
     private float speed;
@@ -36,15 +37,11 @@ public class ShipMov : MonoBehaviour
         }
         instance = this;
 
-
-        vrtkRotator.ValueChanged += UpdateVelocity;
-
-        ControlGame.Instance.e_loseGame += DestroyThis;
-    }
-
-    void Start()
-    {
+        animator = this.GetComponent<Animator>();
         tr = GetComponent<Transform>();
+        
+        ControlGame.Instance.e_startGame += TurnOnShip;
+        ControlGame.Instance.e_loseGame += DestroyThis;
     }
 
     public void DestroyThis()
@@ -52,12 +49,28 @@ public class ShipMov : MonoBehaviour
         Destroy(this);
     }
 
-    private void UpdateVelocity(object sender, ControllableEventArgs e)
+    private void Update()
     {
-        vrtkRotator.GetValue();
-        currentSpeed = vrtkRotator.GetValue()*speed;
+        if(ControlGame.Instance.InGame)
+        UpdateVelocity();
+    }
+
+    private void UpdateVelocity()
+    {
+        currentSpeed = vrtkRotator.GetStepValue(vrtkRotator.GetValue()) * speed;
 
         currentSpeed += currentSpeed*(0.7f+Ship.Instance.SkillControl.LevelPlayer);
         tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (-currentSpeed*Time.deltaTime));
+        UpdateAnimator();
+    }
+
+    private void TurnOnShip()
+    {
+        animator.SetBool("inMov", true);
+    }
+
+    private void UpdateAnimator()
+    {
+        animator.SetFloat("velocity", (-vrtkRotator.GetStepValue(vrtkRotator.GetValue()) +1)/2);
     }
 }
