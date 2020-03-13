@@ -12,15 +12,15 @@ public abstract class ActiveButton : MonoBehaviour
     protected bool inUse;
 
     [SerializeField]
-    private VRTK_ArtificialRotator vrtkRotator;
+    private VRTK_ArtificialSlider vrtkSlider;
 
-    private void Awake()
+    virtual protected void Awake()
     {
-        vrtkRotator.ValueChanged += CheckActivation;
+        vrtkSlider.ValueChanged += CheckActivation;
     }
 
     protected void CheckActivation(object sender, ControllableEventArgs e) {
-        if (vrtkRotator.GetValue() == 1) Activation();
+        if (vrtkSlider.GetStepValue(vrtkSlider.GetValue()) >= 1) Activation();
     }
 
     abstract protected void Activation();

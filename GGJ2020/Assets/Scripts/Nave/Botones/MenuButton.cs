@@ -9,5 +9,13 @@ public class MenuButton : ActiveButton
         SceneControl.Instance.StartMenu();
     }
 
+    private void Update()
+    {
+        
+    }
+    private void Awake()
+    {
+        
+    }
 
 }

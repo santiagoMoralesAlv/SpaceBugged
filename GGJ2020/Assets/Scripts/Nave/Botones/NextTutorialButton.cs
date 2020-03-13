@@ -9,24 +9,18 @@ public class NextTutorialButton : ActiveButton
     [SerializeField]
     private bool toBack;
 
-    private void Awake()
+    override protected void Awake()
     {
+        base.Awake();
         tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
-        if (!toBack) { 
-        this.GetComponent<MeshRenderer>().enabled = false;
+        if (tutorial == null)
+        {
+            Destroy(this);
         }
     }
 
     private void Update()
     {
-        if (!toBack)
-        {
-            if (tutorial.IsComplete)
-        {
-            this.GetComponent<MeshRenderer>().enabled = true;
-                this.GetComponent<BoxCollider>().enabled = true;
-            }
-        }
     }
 
     override protected void Activation()
