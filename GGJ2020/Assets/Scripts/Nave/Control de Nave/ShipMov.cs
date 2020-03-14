@@ -57,7 +57,7 @@ public class ShipMov : MonoBehaviour
 
     private void UpdateVelocity()
     {
-        currentSpeed = vrtkRotator.GetStepValue(vrtkRotator.GetValue()) * speed;
+        currentSpeed = vrtkRotator.GetStepValue(vrtkRotator.GetValue()) * -speed;
 
         currentSpeed += currentSpeed*(0.7f+Ship.Instance.SkillControl.LevelPlayer);
         tr.localPosition = new Vector3(tr.localPosition.x, tr.localPosition.y, tr.localPosition.z + (-currentSpeed*Time.deltaTime));
