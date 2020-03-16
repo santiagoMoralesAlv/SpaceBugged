@@ -2,34 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextTutorialButton : ActiveButton
+public class HandleNext : Handle
 {
     [SerializeField]
     private Tutorial tutorial;
-    [SerializeField]
-    private bool toBack;
 
     override protected void Awake()
     {
         base.Awake();
-        tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
+        if (isTutorial)
+        {
+            tutorial = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Tutorial>();
+        }
         if (tutorial == null)
         {
             Destroy(this);
         }
     }
 
-    private void Update()
-    {
-    }
-
     override protected void Activation()
     {
-        if (toBack) { 
-            SceneControl.Instance.StartTutorial(tutorial.NumTutorial-1);
-        }else
+        if (isTutorial)
         {
             SceneControl.Instance.StartTutorial(tutorial.NumTutorial + 1);
+        }
+        else
+        {
+            if (!ControlGame.Instance.InGame)
+            {
+                ControlGame.Instance.StartGame();
+            }
         }
     }
 }

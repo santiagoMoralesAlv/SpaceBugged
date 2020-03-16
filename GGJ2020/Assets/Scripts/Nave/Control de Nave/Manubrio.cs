@@ -24,14 +24,16 @@ public class Manubrio : MonoBehaviour
     {
         if (showing)
         {
-            if (Vector3.Distance(HeadsetReference.Instance.HeadsetTf.position, tf.position) > distance)
+            if (Vector3.Distance((new Vector3(HeadsetReference.Instance.HeadsetTf.position.x, 0, HeadsetReference.Instance.HeadsetTf.position.z)),
+                new Vector3(tf.position.x, 0, tf.position.z)) > distance)
             {
                 showing = !showing;
                 UpdateAnimator();
             }
         }
         else {
-            if (Vector3.Distance(HeadsetReference.Instance.HeadsetTf.position, tf.position) < distance)
+            if (Vector3.Distance((new Vector3(HeadsetReference.Instance.HeadsetTf.position.x, 0, HeadsetReference.Instance.HeadsetTf.position.z)),
+                new Vector3(tf.position.x, 0, tf.position.z)) < distance)
             {
                 showing = !showing;
                 UpdateAnimator();
