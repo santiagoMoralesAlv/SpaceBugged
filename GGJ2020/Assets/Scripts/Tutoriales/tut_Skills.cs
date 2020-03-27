@@ -53,7 +53,7 @@ public class tut_Skills : Tutorial
 
     public bool CheckHubAndRadar()
     {
-        bool result = Ship.Instance.SkillControl.ShowingPlayerHub && Ship.Instance.SkillControl.ShowingRadar;
+        bool result = Ship.Instance.SkillControl.ShowingPlayerHud && Ship.Instance.SkillControl.ShowingRadar;
 
         return result;
     }

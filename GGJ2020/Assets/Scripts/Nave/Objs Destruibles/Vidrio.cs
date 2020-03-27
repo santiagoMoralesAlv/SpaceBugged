@@ -7,25 +7,6 @@ public class Vidrio : PartDestruible
     [SerializeField]
     private Material m_material;
 
-    new private void Awake()
-    {
-        base.Awake();
-        m_material = this.GetComponent<Renderer>().material;
-
-        ControlGame.Instance.e_startGame += UpdatePart;
-    }
-
-    // Update is called once per frame
-    override public void UpdatePart()
-    {
-        //if(coroutin)
-        if (!isCoroutineRunning)
-        {
-            isCoroutineRunning = true;
-            StartCoroutine("UpdateDamage");
-        }
-    }
-
     override public void Heal(float value)
     {
         Ship.Instance.ApplyGlassHeal(value);
@@ -36,6 +17,7 @@ public class Vidrio : PartDestruible
         return Ship.Instance.GlassClarity;
     }
 
+    /*
     [SerializeField]
     private bool isCoroutineRunning;
     override protected IEnumerator UpdateDamage()
@@ -48,4 +30,5 @@ public class Vidrio : PartDestruible
         isCoroutineRunning = false;
 
     }
+    */
 }

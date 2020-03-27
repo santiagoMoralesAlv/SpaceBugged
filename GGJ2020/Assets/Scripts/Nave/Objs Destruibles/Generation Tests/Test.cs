@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
     virtual protected void Awake()
     {
         ConstraintSource headsetConstraint = new ConstraintSource();
-        headsetConstraint.sourceTransform = HeadsetReference.Instance.HeadsetTf;
+        headsetConstraint.sourceTransform = VRReferences.Instance.HeadsetTf;
         headsetConstraint.weight = 1;
         this.GetComponent<LookAtConstraint>().AddSource(headsetConstraint);
     }

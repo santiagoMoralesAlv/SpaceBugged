@@ -24,7 +24,7 @@ public class Manubrio : MonoBehaviour
     {
         if (showing)
         {
-            if (Vector3.Distance((new Vector3(HeadsetReference.Instance.HeadsetTf.position.x, 0, HeadsetReference.Instance.HeadsetTf.position.z)),
+            if (Vector3.Distance((new Vector3(VRReferences.Instance.HeadsetTf.position.x, 0, VRReferences.Instance.HeadsetTf.position.z)),
                 new Vector3(tf.position.x, 0, tf.position.z)) > distance)
             {
                 showing = !showing;
@@ -32,7 +32,7 @@ public class Manubrio : MonoBehaviour
             }
         }
         else {
-            if (Vector3.Distance((new Vector3(HeadsetReference.Instance.HeadsetTf.position.x, 0, HeadsetReference.Instance.HeadsetTf.position.z)),
+            if (Vector3.Distance((new Vector3(VRReferences.Instance.HeadsetTf.position.x, 0, VRReferences.Instance.HeadsetTf.position.z)),
                 new Vector3(tf.position.x, 0, tf.position.z)) < distance)
             {
                 showing = !showing;

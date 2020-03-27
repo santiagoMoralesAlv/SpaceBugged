@@ -122,9 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc7f8ea87efd2849851b9c1275f4223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tool: {fileID: 0}
-  inGrab: 0
+  isRightController: 1
+  controller: {fileID: 0}
   vrtkGrab: {fileID: 0}
   vrtkUse: {fileID: 0}
   vrtkPointer: {fileID: 0}
   vrtkNearTouch: {fileID: 0}
+  m_animator: {fileID: 0}

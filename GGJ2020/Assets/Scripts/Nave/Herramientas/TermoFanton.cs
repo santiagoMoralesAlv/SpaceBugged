@@ -20,8 +20,9 @@ public class TermoFanton : ActiveTool
     public Vector3 PointHit { get => pointHit;}
     public Transform Aim { get => aim;}
 
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake();
         tf = this.transform;
     }
 

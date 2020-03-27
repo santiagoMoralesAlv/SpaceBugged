@@ -12,8 +12,9 @@ public class Laser : ActiveTool
     private Transform aim, pointA, pointB;
     private Transform tf;
 
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake();
         tf = this.transform;
     }
 

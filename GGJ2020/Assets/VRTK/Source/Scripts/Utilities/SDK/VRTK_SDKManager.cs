@@ -368,6 +368,7 @@ namespace VRTK
                 {
                     _loadedSetup = setups[0];
                 }
+                
 
                 return _loadedSetup;
             }
@@ -890,14 +891,15 @@ namespace VRTK
                 handler(this, e);
             }
         }
-
+        
+        public UnityEngine.Events.UnityAction FinishedLoadSDK;
         private IEnumerator FinishSDKSetupLoading(VRTK_SDKSetup[] sdkSetups, VRTK_SDKSetup previousLoadedSetup)
         {
             yield return null;
 
             string loadedDeviceName = string.IsNullOrEmpty(XRSettings.loadedDeviceName) ? "None" : XRSettings.loadedDeviceName;
             loadedSetup = sdkSetups.FirstOrDefault(setup => setup.usedVRDeviceNames.Contains(loadedDeviceName));
-
+            
             if (loadedSetup == null)
             {
                 // The loaded VR Device doesn't match any SDK Setup
@@ -951,6 +953,7 @@ namespace VRTK
             ToggleBehaviours(true);
             CheckControllersReady();
             OnLoadedSetupChanged(new LoadedSetupChangeEventArgs(previousLoadedSetup, loadedSetup, null));
+            FinishedLoadSDK();
         }
 
         private void CheckControllersReady()

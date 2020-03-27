@@ -51,7 +51,7 @@ public class ManagerSurfaceTest : ManagerTest
 
     private Vector3 CastRay(Vector3 point)
     {
-        Vector3 eyesPosition = HeadsetReference.Instance.HeadsetTf.position;
+        Vector3 eyesPosition = VRReferences.Instance.HeadsetTf.position;
         ray = new Ray(eyesPosition, (point - eyesPosition));
 
         if (ShowRay)

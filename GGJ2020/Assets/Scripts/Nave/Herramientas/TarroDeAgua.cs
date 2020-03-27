@@ -16,8 +16,9 @@ public class TarroDeAgua : ActiveTool
     [SerializeField]
     private float energy, radius, capacityToCharge;
 
-    private void Awake()
+    new private void Awake()
     {
+        base.Awake();
         tf = this.transform;
     }
 

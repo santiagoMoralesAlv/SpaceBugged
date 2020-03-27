@@ -28,8 +28,8 @@ public class SkillControl : MonoBehaviour
 
 
     [SerializeField]
-    private bool showingPlayerHub, showingRadar, canLaunchGravity;
-    public bool ShowingPlayerHub { get => showingPlayerHub;}
+    private bool showingPlayerHud, showingRadar, canLaunchGravity;
+    public bool ShowingPlayerHud { get => showingPlayerHud;}
     public bool ShowingRadar { get => showingRadar;  }
     public bool CanLaunchGravity { get => canLaunchGravity; }
 
@@ -51,10 +51,10 @@ public class SkillControl : MonoBehaviour
 
 
     [SerializeField]
-    private Image imgGravity, imgPointer, imgRadar, imgPlayerHub, imgPocketAizq, imgPocketBizq, imgPocketAder, imgPocketBder;
+    private Image imgGravity, imgPointer, imgRadar, imgPlayerHud, imgPocketAizq, imgPocketBizq, imgPocketAder, imgPocketBder;
 
     [SerializeField]
-    private Sprite sprSkillInAction, sprGravity, sprPointer, sprRadar, sprPlayerHub, sprPocket;
+    private Sprite sprSkillInAction, sprGravity, sprPointer, sprRadar, sprPlayerHud, sprPocket;
 
     private void Awake()
     {
@@ -85,7 +85,7 @@ public class SkillControl : MonoBehaviour
                 case 1:
                     break;
                 case 2:
-                    imgPlayerHub.sprite = sprPlayerHub;
+                    imgPlayerHud.sprite = sprPlayerHud;
                     imgRadar.sprite = sprRadar;
                     break;
                 case 3: //Gravity
@@ -108,10 +108,10 @@ public class SkillControl : MonoBehaviour
     public void ShowPlayerHub(bool value) {
         if (levelPlayer > 1)
         {
-            showingPlayerHub = value;
-            playerHub.SetActive(value);
+            showingPlayerHud = value;
+            VRReferences.Instance.RightBugHand.UpdateDiscState(value);
             
-            imgPlayerHub.sprite = value ? sprSkillInAction : sprPlayerHub;
+            imgPlayerHud.sprite = value ? sprSkillInAction : sprPlayerHud;
         }
     }
     public void ShowRadar(bool value)
@@ -119,8 +119,8 @@ public class SkillControl : MonoBehaviour
         if (levelPlayer > 1)
         {
             showingRadar = value;
-            radar.SetActive(value);
-            
+            VRReferences.Instance.RightBugHand.UpdateDiscState(value);
+
             imgRadar.sprite = value ? sprSkillInAction : sprRadar;
         }
     }

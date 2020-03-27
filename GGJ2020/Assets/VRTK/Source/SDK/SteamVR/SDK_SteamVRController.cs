@@ -144,7 +144,8 @@ namespace VRTK
             switch (element)
             {
                 case ControllerElements.AttachPoint:
-                    return "tip/attach";
+                    //return "tip/attach";
+                    return "ControllerArmature/Root/Hand 1/toolAxis/toolAxis_end";
                 case ControllerElements.Trigger:
                     return "trigger" + suffix;
                 case ControllerElements.GripLeft:

@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disc
+  m_Mask: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: baseJoin
+    m_Weight: 0
+  - m_Path: BaseTeeth
+    m_Weight: 0
+  - m_Path: BaseTouchPad
+    m_Weight: 0
+  - m_Path: BodyTeeth
+    m_Weight: 0
+  - m_Path: BodyTeeth.001
+    m_Weight: 0
+  - m_Path: CableGrip.L
+    m_Weight: 0
+  - m_Path: CableTouchpad.R
+    m_Weight: 0
+  - m_Path: CableTrigger
+    m_Weight: 0
+  - m_Path: ClosedDoors.R
+    m_Weight: 0
+  - m_Path: ControllerArmature
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/Disc 1
+    m_Weight: 1
+  - m_Path: ControllerArmature/Root/Hand 1/Disc 1/DiscAxis
+    m_Weight: 1
+  - m_Path: ControllerArmature/Root/Hand 1/Disc 1/DiscAxis/DiscAxis_end
+    m_Weight: 1
+  - m_Path: ControllerArmature/Root/Hand 1/GripLeft
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/GripLeft/GripLeft_end
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/GripRight
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/GripRight/GripRight_end
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointLeft
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointLeft/BaseToothLeft
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointLeft/BaseToothLeft/ToothLeft
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointLeft/BaseToothLeft/ToothLeft/ToothLeft_end
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointRight
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointRight/BaseToothRight
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointRight/BaseToothRight/ToothRight
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/JointRight/BaseToothRight/ToothRight/ToothRight_end
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/Trigger 1
+    m_Weight: 0
+  - m_Path: ControllerArmature/Root/Hand 1/Trigger 1/Trigger_end
+    m_Weight: 0
+  - m_Path: Disc
+    m_Weight: 0
+  - m_Path: EnergyCristal
+    m_Weight: 0
+  - m_Path: FlatCableSkill
+    m_Weight: 0
+  - m_Path: Grip.L
+    m_Weight: 0
+  - m_Path: Hand
+    m_Weight: 0
+  - m_Path: HandDoor
+    m_Weight: 0
+  - m_Path: Holographic.L
+    m_Weight: 0
+  - m_Path: Holographic.R
+    m_Weight: 0
+  - m_Path: HolographicPocket
+    m_Weight: 0
+  - m_Path: HolographicProjector
+    m_Weight: 0
+  - m_Path: JointPinza-L
+    m_Weight: 0
+  - m_Path: JointPinza.R
+    m_Weight: 0
+  - m_Path: MenuButton
+    m_Weight: 0
+  - m_Path: Sphere.L
+    m_Weight: 0
+  - m_Path: SphereBase.L
+    m_Weight: 0
+  - m_Path: SphereBase.R
+    m_Weight: 0
+  - m_Path: SphereBase.R.001
+    m_Weight: 0
+  - m_Path: SteamButton
+    m_Weight: 0
+  - m_Path: SupportHand.R
+    m_Weight: 0
+  - m_Path: Teeth.L
+    m_Weight: 0
+  - m_Path: Teeth.R
+    m_Weight: 0
+  - m_Path: Teleport
+    m_Weight: 0
+  - m_Path: Touchpad
+    m_Weight: 0
+  - m_Path: Trigger
+    m_Weight: 0
+  - m_Path: wrist
+    m_Weight: 0

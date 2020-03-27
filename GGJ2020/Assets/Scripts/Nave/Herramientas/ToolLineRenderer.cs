@@ -14,9 +14,7 @@ public class ToolLineRenderer : ToolSFX
         {
             line = this.GetComponent<LineRenderer>();
         }
-
-
-
+        
         tool.e_InUse += UpdateSFX;
     }
 

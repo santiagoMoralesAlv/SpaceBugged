@@ -28,12 +28,25 @@ public abstract class Tool : MonoBehaviour
     public bool IsGrabbed { get => isGrabbed;}
     public toolType Type { get => type;}
 
-    public void TakeTool() {
+    [SerializeField]
+    private bool fixedRotation;
+
+    [SerializeField]
+    private Rigidbody rb;
+
+    protected void Awake()
+    {
+        rb = this.GetComponent<Rigidbody>();
+    }
+
+    public void TakeTool(Transform hand) {
+        this.transform.rotation = hand.rotation;
         isGrabbed = true;
         NotifyGrab();
     }
 
-    public void DropTool() {
+    public void DropTool()
+    {
         isGrabbed = false;
         NotifyGrab();
     }

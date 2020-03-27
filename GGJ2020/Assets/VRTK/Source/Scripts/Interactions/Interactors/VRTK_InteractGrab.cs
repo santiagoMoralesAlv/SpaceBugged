@@ -346,7 +346,6 @@ namespace VRTK
                 SDK_BaseController.ControllerHand handType = VRTK_DeviceFinder.GetControllerHand(interactTouch.gameObject);
                 string elementPath = VRTK_SDK_Bridge.GetControllerElementPath(SDK_BaseController.ControllerElements.AttachPoint, handType);
                 Transform defaultAttachPoint = controllerReference.model.transform.Find(elementPath);
-
                 if (defaultAttachPoint != null)
                 {
                     controllerAttachPoint = defaultAttachPoint.GetComponent<Rigidbody>();
