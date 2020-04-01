@@ -119,7 +119,7 @@ public class SkillControl : MonoBehaviour
         if (levelPlayer > 1)
         {
             showingRadar = value;
-            VRReferences.Instance.RightBugHand.UpdateDiscState(value);
+            VRReferences.Instance.LeftBugHand.UpdateDiscState(value);
 
             imgRadar.sprite = value ? sprSkillInAction : sprRadar;
         }

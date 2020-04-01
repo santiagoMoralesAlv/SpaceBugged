@@ -113,10 +113,13 @@ public class BugHand : MonoBehaviour
         }
 
 
+        Debug.Log("b");
         if (m_animator != null)
         {
+            Debug.Log("g");
             if (!isCoroutineRunning)
             {
+                Debug.Log("x");
                 isCoroutineRunning = true;
                 StartCoroutine("UpdateUseAnimation");
             }
@@ -146,24 +149,25 @@ public class BugHand : MonoBehaviour
     private IEnumerator UpdateUseAnimation()
     {
         //La animacion de la corutina parpadea porque se esta reparando todo el tiempo, entonces la corutina funciona en ambas direcciones todo el tiempo
-        if (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= controller.GetTriggerSenseAxis())
+        if (m_animator.GetCurrentAnimatorStateInfo(2).normalizedTime <= controller.GetTriggerAxis())
         {
             m_animator.SetFloat("speedMult", 1);
-            while (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= controller.GetTriggerSenseAxis())
+            while (m_animator.GetCurrentAnimatorStateInfo(2).normalizedTime <= controller.GetTriggerAxis())
             {
+                Debug.Log(m_animator.GetCurrentAnimatorStateInfo(2).normalizedTime +" | "+ controller.GetTriggerAxis());
                 yield return null;
             }
         }
         else
         {
             m_animator.SetFloat("speedMult", -1);
-            while (m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime > controller.GetTriggerSenseAxis())
+            while (m_animator.GetCurrentAnimatorStateInfo(2).normalizedTime > controller.GetTriggerAxis())
             {
                 yield return null;
             }
         }
 
-        m_animator.Play("Use", 2, controller.GetTriggerSenseAxis());
+        m_animator.Play("Use", 2, controller.GetTriggerAxis());
         m_animator.SetFloat("speedMult", 0);
         isCoroutineRunning = false;
     }

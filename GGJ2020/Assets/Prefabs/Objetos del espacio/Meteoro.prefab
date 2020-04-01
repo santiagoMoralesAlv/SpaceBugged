@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6603511108848735256}
   - component: {fileID: 2195438022446840530}
   - component: {fileID: 2781638864796072848}
+  - component: {fileID: 7121822981148540550}
   m_Layer: 9
   m_Name: Meteoro
   m_TagString: meteoro
@@ -59,7 +60,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.05
+  slowdown: 0
   sonido: {fileID: 2633277584167481962, guid: 1134e3ed107fdd647b07dfb52851fa92, type: 3}
+  applyDamage: 0
 --- !u!54 &2781638864796072848
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76,3 +79,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!95 &7121822981148540550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616388148176305516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5d3b1137e1b8ff40a397fec189bc47f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
